@@ -1,0 +1,137 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Lead {
+  id              String        @id @default(cuid())
+  email           String        @unique
+  name            String
+  segment         String        // player | b2b
+  interest        String        // colony | corporate | both
+  companyName     String?
+  jobTitle        String?
+  source          String?       // UTM source
+  medium          String?       // UTM medium
+  campaign        String?       // UTM campaign
+  term            String?       // UTM term
+  content         String?       // UTM content
+  referrer        String?
+  status          String        @default("new") // new | contacted | qualified | won | lost
+  score           Int           @default(0)
+  verified        Boolean       @default(false)
+  verifyToken     String?
+  gdprConsent     Boolean       @default(false)
+  consentDate     DateTime?
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  tags            LeadTag[]
+  events          Event[]
+  emailLogs       EmailLog[]
+  consentLogs     ConsentLog[]
+}
+
+model Tag {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  color       String    @default("#6366f1")
+  createdAt   DateTime  @default(now())
+  leads       LeadTag[]
+}
+
+model LeadTag {
+  id        String   @id @default(cuid())
+  leadId    String
+  tagId     String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@unique([leadId, tagId])
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  leadId      String?
+ visitorId   String?
+  type        String    // page_view | form_submit | cta_click | email_open | email_click
+  page        String?
+  action      String?
+  metadata    String?   // JSON string
+  createdAt   DateTime  @default(now())
+  lead        Lead?     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model EmailLog {
+  id            String    @id @default(cuid())
+  leadId        String
+  emailType     String    // verification | welcome_player | welcome_b2b | drip_1 | drip_2 | drip_3 | demo_confirm
+  subject       String
+  status        String    @default("sent") // sent | delivered | opened | clicked | bounced | failed
+  sentAt        DateTime  @default(now())
+  openedAt      DateTime?
+  clickedAt     DateTime?
+  lead          Lead      @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model ConsentLog {
+  id          String    @id @default(cuid())
+  leadId      String
+  action      String    // granted | withdrawn | updated
+  consentType String    // marketing | analytics | all
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime  @default(now())
+  lead        Lead      @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model LeadScore {
+  id          String    @id @default(cuid())
+  ruleName    String    @unique
+  condition   String    // JSON: {"field": "segment", "value": "b2b"}
+  points      Int
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model DataDeletionRequest {
+  id          String    @id @default(cuid())
+  email       String
+  status      String    @default("pending") // pending | processing | completed | rejected
+  requestedAt DateTime  @default(now())
+  processedAt DateTime?
+  notes       String?
+}
+
+model RateLimit {
+  id          String    @id @default(cuid())
+  identifier  String    // IP or email
+  action      String    // form_submit
+  count       Int       @default(1)
+  windowStart DateTime  @default(now())
+  @@unique([identifier, action])
+}
+
+model Settings {
+  id                  String    @id @default(cuid())
+  dataRetentionDays   Int       @default(365)
+  enableAnalytics     Boolean   @default(true)
+  enableDrip          Boolean   @default(true)
+  updatedAt           DateTime  @updatedAt
+}
