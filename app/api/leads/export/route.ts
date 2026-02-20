@@ -1,35 +1,50 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
+
   try {
-    const leads = await prisma.lead.findMany({
-      include: { tags: { include: { tag: true } } },
-      orderBy: { createdAt: "desc" },
-    });
+    const { data: leads, error } = await supabase
+      .from('leads')
+      .select('*, tags:lead_tags(*, tag:tags(*))')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
 
     const headers = ["Name", "Email", "Segment", "Interest", "Company", "Job Title", "Status", "Score", "Verified", "Source", "Medium", "Campaign", "Tags", "Created At"];
 
-    const rows = leads.map((lead: any) => [
+    const rows = (leads || []).map((lead: any) => [
       lead.name,
       lead.email,
       lead.segment,
       lead.interest,
-      lead.companyName || "",
-      lead.jobTitle || "",
+      lead.company_name || "",
+      lead.job_title || "",
       lead.status,
-      lead.score.toString(),
+      String(lead.score || 0),
       lead.verified ? "Yes" : "No",
       lead.source || "",
       lead.medium || "",
       lead.campaign || "",
       lead.tags?.map((t: any) => t?.tag?.name).join("; ") || "",
-      lead.createdAt.toISOString(),
+      lead.created_at,
     ]);
 
-    const csv = [headers.join(","), ...rows.map((row: any) => row.map((cell: any) => `"${cell?.replace(/"/g, '""') || ""}"`).join(","))].join("\n");
+    const csv = [
+      headers.join(","),
+      ...rows.map((row: any) =>
+        row.map((cell: any) => `"${String(cell || "").replace(/"/g, '""')}"`).join(",")
+      ),
+    ].join("\n");
 
     return new NextResponse(csv, {
       headers: {

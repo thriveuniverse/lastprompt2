@@ -1,9 +1,17 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
+
   try {
     const { email } = await request.json();
 
@@ -12,9 +20,12 @@ export async function POST(request: Request) {
     }
 
     // Check if request already exists
-    const existing = await prisma.dataDeletionRequest.findFirst({
-      where: { email, status: { in: ["pending", "processing"] } },
-    });
+    const { data: existing } = await supabase
+      .from('data_deletion_requests')
+      .select('*')
+      .eq('email', email)
+      .in('status', ['pending', 'processing'])
+      .single();
 
     if (existing) {
       return NextResponse.json({
@@ -24,8 +35,10 @@ export async function POST(request: Request) {
     }
 
     // Create deletion request
-    await prisma.dataDeletionRequest.create({
-      data: { email, status: "pending" },
+    await supabase.from('data_deletion_requests').insert({
+      email,
+      status: "pending",
+      created_at: new Date().toISOString(),
     });
 
     return NextResponse.json({

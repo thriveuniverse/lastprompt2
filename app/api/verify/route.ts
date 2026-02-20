@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 import { sendNotificationEmail, getWelcomeEmailHtml } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
+
   try {
     const { token } = await request.json();
 
@@ -12,9 +20,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: "Invalid token" }, { status: 400 });
     }
 
-    const lead = await prisma.lead.findFirst({ where: { verifyToken: token } });
+    const { data: lead, error: findError } = await supabase
+      .from('leads')
+      .select('*')
+      .eq('verify_token', token)
+      .single();
 
-    if (!lead) {
+    if (findError || !lead) {
       return NextResponse.json({ success: false, message: "Invalid or expired verification link" }, { status: 400 });
     }
 
@@ -22,18 +34,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Email already verified" });
     }
 
-    await prisma.lead.update({
-      where: { id: lead.id },
-      data: { verified: true, verifyToken: null },
-    });
+    await supabase
+      .from('leads')
+      .update({ verified: true, verify_token: null })
+      .eq('id', lead.id);
 
     // Track verification event
-    await prisma.event.create({
-      data: {
-        leadId: lead.id,
-        type: "email_click",
-        action: "verification_complete",
-      },
+    await supabase.from('events').insert({
+      lead_id: lead.id,
+      type: "email_click",
+      action: "verification_complete",
+      created_at: new Date().toISOString(),
     });
 
     // Send welcome email based on segment
@@ -48,13 +59,12 @@ export async function POST(request: Request) {
     });
 
     // Log welcome email
-    await prisma.emailLog.create({
-      data: {
-        leadId: lead.id,
-        emailType: lead.segment === "b2b" ? "welcome_b2b" : "welcome_player",
-        subject,
-        status: "sent",
-      },
+    await supabase.from('email_logs').insert({
+      lead_id: lead.id,
+      email_type: lead.segment === "b2b" ? "welcome_b2b" : "welcome_player",
+      subject,
+      status: "sent",
+      created_at: new Date().toISOString(),
     });
 
     // Admin notification

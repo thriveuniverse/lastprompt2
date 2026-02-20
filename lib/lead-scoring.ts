@@ -1,4 +1,5 @@
-import { prisma } from "@/lib/db";
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export async function calculateLeadScore(lead: {
   segment: string;
@@ -30,18 +31,35 @@ export async function calculateLeadScore(lead: {
   if (lead.source === "linkedin") score += 10;
   if (lead.source === "referral") score += 15;
 
-  // Load custom rules
-  const customRules = await prisma.leadScore.findMany({ where: { isActive: true } });
-  for (const rule of customRules) {
-    try {
-      const condition = JSON.parse(rule.condition);
-      const fieldValue = (lead as any)[condition.field];
-      if (fieldValue && fieldValue.toLowerCase().includes(condition.value.toLowerCase())) {
-        score += rule.points;
+  // Load custom rules from Supabase
+  try {
+    const cookieStore = cookies();
+    const supabase = createServerClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      { cookies: { get: (name) => cookieStore.get(name)?.value } }
+    );
+
+    const { data: customRules } = await supabase
+      .from('lead_scores')
+      .select('*')
+      .eq('is_active', true);
+
+    if (customRules) {
+      for (const rule of customRules) {
+        try {
+          const condition = JSON.parse(rule.condition);
+          const fieldValue = (lead as any)[condition.field];
+          if (fieldValue && fieldValue.toLowerCase().includes(condition.value.toLowerCase())) {
+            score += rule.points;
+          }
+        } catch (e) {
+          // Skip invalid rules
+        }
       }
-    } catch (e) {
-      // Skip invalid rules
     }
+  } catch (e) {
+    // Fail open — custom rules are optional
   }
 
   return Math.min(score, 100);
