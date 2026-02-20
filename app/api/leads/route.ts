@@ -117,12 +117,20 @@ export async function POST(request: Request) {
     });
 
     // Send verification email (keep as is)
+    console.log(`[Leads] Starting email verification process for ${email}`);
     const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
-    await sendNotificationEmail({
-      recipientEmail: email,
-      subject: "Verify Your Email - Last Prompt",
-      body: getVerificationEmailHtml(name, verifyUrl),
-    });
+    console.log(`[Leads] Generated Verify URL: ${verifyUrl}`);
+
+    try {
+      const emailResult = await sendNotificationEmail({
+        recipientEmail: email,
+        subject: "Verify Your Email - Last Prompt",
+        body: getVerificationEmailHtml(name, verifyUrl),
+      });
+      console.log(`[Leads] sendNotificationEmail result:`, emailResult);
+    } catch (e) {
+      console.error(`[Leads] CRITICAL: sendNotificationEmail threw an error:`, e);
+    }
 
     // Log email
     await supabase.from('email_logs').insert({
@@ -135,6 +143,7 @@ export async function POST(request: Request) {
 
     // Admin notification for demo requests (keep as is)
     if (isDemoRequest) {
+      console.log(`[Leads] Sending Admin Demo Notification...`);
       await sendNotificationEmail({
         recipientEmail: "littlehousefrance@gmail.com",
         subject: `New Demo Request: ${name} from ${companyName || "Unknown Company"}`,
@@ -144,7 +153,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, message: "Please check your email to verify" });
   } catch (error: any) {
-    console.error("Lead creation error:", error);
+    console.error("[Leads] CRITICAL ERROR IN POST:", error);
     return NextResponse.json({ message: error?.message || "Internal server error" }, { status: 500 });
   }
 }

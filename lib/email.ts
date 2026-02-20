@@ -12,7 +12,10 @@ export async function sendNotificationEmail({
   senderName?: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = fromEmail || "Last Prompt <onboarding@resend.dev>"; // Use verified domain once set up in Resend
+  const from = fromEmail || "Last Prompt <onboarding@resend.dev>";
+
+  console.log(`[Email] Attempting to send to ${recipientEmail}`);
+  console.log(`[Email] Using API Key: ${apiKey ? "Present (Starts with " + apiKey.substring(0, 5) + "...)" : "MISSING"}`);
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -30,9 +33,16 @@ export async function sendNotificationEmail({
     });
 
     const result = await response.json();
+    console.log(`[Email] Resend Response Status: ${response.status}`);
+    console.log(`[Email] Resend Response Body:`, JSON.stringify(result, null, 2));
+
+    if (!response.ok) {
+      console.error(`[Email] Failed to send. Status: ${response.status}, Error:`, result);
+    }
+
     return { success: !!result.id, id: result.id };
   } catch (error) {
-    console.error("Resend email send error:", error);
+    console.error("[Email] Exception during fetch:", error);
     return { success: false, error };
   }
 }
@@ -61,29 +71,29 @@ export function getWelcomeEmailHtml(name: string, segment: string) {
   const isB2B = segment === "b2b";
   const content = isB2B
     ? {
-        headline: "Transform Leadership Training",
-        intro: "You're now part of an exclusive group of forward-thinking organizations exploring immersive simulation-based training.",
-        bullets: [
-          "Case studies from successful implementations",
-          "Insights on measuring training ROI",
-          "Early access to corporate workshop materials",
-          "Direct line to schedule a personalized demo",
-        ],
-        cta: "Schedule Your Demo",
-        ctaUrl: "#calendar-placeholder",
-      }
+      headline: "Transform Leadership Training",
+      intro: "You're now part of an exclusive group of forward-thinking organizations exploring immersive simulation-based training.",
+      bullets: [
+        "Case studies from successful implementations",
+        "Insights on measuring training ROI",
+        "Early access to corporate workshop materials",
+        "Direct line to schedule a personalized demo",
+      ],
+      cta: "Schedule Your Demo",
+      ctaUrl: "#calendar-placeholder",
+    }
     : {
-        headline: "Welcome to the Last Prompt Community",
-        intro: "You're now part of our growing community of strategy enthusiasts ready to face the ultimate challenges.",
-        bullets: [
-          "Exclusive playtest opportunities",
-          "Behind-the-scenes development updates",
-          "Community events and discussions",
-          "Early access to new features",
-        ],
-        cta: "Join Our Discord",
-        ctaUrl: "#discord-placeholder",
-      };
+      headline: "Welcome to the Last Prompt Community",
+      intro: "You're now part of our growing community of strategy enthusiasts ready to face the ultimate challenges.",
+      bullets: [
+        "Exclusive playtest opportunities",
+        "Behind-the-scenes development updates",
+        "Community events and discussions",
+        "Early access to new features",
+      ],
+      cta: "Join Our Discord",
+      ctaUrl: "#discord-placeholder",
+    };
 
   return `
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0f; color: #e0e0e0; padding: 40px; border-radius: 12px;">
