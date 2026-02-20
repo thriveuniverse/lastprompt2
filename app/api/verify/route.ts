@@ -48,11 +48,9 @@ export async function POST(request: Request) {
     });
 
     // Send welcome email based on segment
-    const notificationId = lead.segment === "b2b" ? process.env.NOTIF_ID_WELCOME_EMAIL_B2B : process.env.NOTIF_ID_WELCOME_EMAIL_PLAYER;
     const subject = lead.segment === "b2b" ? "Welcome to Last Prompt for Business" : "Welcome to the Last Prompt Community";
 
     await sendNotificationEmail({
-      notificationId: notificationId || "",
       recipientEmail: lead.email,
       subject,
       body: getWelcomeEmailHtml(lead.name, lead.segment),
@@ -69,7 +67,6 @@ export async function POST(request: Request) {
 
     // Admin notification
     await sendNotificationEmail({
-      notificationId: process.env.NOTIF_ID_NEW_LEAD_ALERT || "",
       recipientEmail: "littlehousefrance@gmail.com",
       subject: `New Verified Lead: ${lead.name} (${lead.segment})`,
       body: `<div style="font-family: Arial; padding: 20px;"><h2>New Verified Lead</h2><p><strong>Name:</strong> ${lead.name}</p><p><strong>Email:</strong> ${lead.email}</p><p><strong>Segment:</strong> ${lead.segment}</p><p><strong>Interest:</strong> ${lead.interest}</p><p><strong>Score:</strong> ${lead.score}</p></div>`,
