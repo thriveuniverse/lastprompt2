@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { checkRateLimit } from "@/lib/rate-limit"; // now Supabase version
 import { calculateLeadScore } from "@/lib/lead-scoring";
@@ -9,7 +9,12 @@ import crypto from "crypto";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
 
   try {
     const body = await request.json();
@@ -136,7 +141,7 @@ export async function POST(request: Request) {
         notificationId: process.env.NOTIF_ID_NEW_DEMO_REQUEST_ALERT || "",
         recipientEmail: "littlehousefrance@gmail.com",
         subject: `New Demo Request: ${name} from ${companyName || "Unknown Company"}`,
-        body: getDemoConfirmEmailHtml(name, companyName, jobTitle, interest, score),
+        body: getDemoConfirmEmailHtml(name, companyName),
       });
     }
 
@@ -149,7 +154,12 @@ export async function POST(request: Request) {
 
 // GET (keep, rewritten with Supabase)
 export async function GET(request: Request) {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
 
   try {
     const { searchParams } = new URL(request.url);

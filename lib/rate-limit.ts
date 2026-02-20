@@ -1,5 +1,5 @@
 // lib/rate-limit.ts (new version – no Prisma)
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createServerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
@@ -7,7 +7,12 @@ const MAX_REQUESTS = 5;
 const TABLE = 'rate_limits'; // create this table in Supabase
 
 export async function checkRateLimit(identifier: string, action: string = "form_submit"): Promise<boolean> {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) => cookieStore.get(name)?.value } }
+  );
 
   const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW).toISOString();
 
