@@ -49,25 +49,25 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
     setErrorMessage("");
 
     try {
-      const utmParams = new URLSearchParams(window.location.search);
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          captchaToken,
-          isDemoRequest: variant === "demo",
-          source: utmParams.get("utm_source") || undefined,
-          medium: utmParams.get("utm_medium") || undefined,
-          campaign: utmParams.get("utm_campaign") || undefined,
-          term: utmParams.get("utm_term") || undefined,
-          content: utmParams.get("utm_content") || undefined,
-          referrer: document.referrer || undefined,
-        }),
+      const { data, error } = await supabase.from('leads').insert({
+        name: formData.name,
+        email: formData.email,
+        segment: formData.segment,
+        interest: formData.interest,
+        company_name: formData.companyName,
+        job_title: formData.jobTitle,
+        campaign_source: new URLSearchParams(window.location.search).get('utm_source') || 'unknown',
+        webpage_url: window.location.href,
+        metadata: {
+          utm_params: Object.fromEntries(new URLSearchParams(window.location.search)),
+          referrer: document.referrer,
+        },
+        gdpr_consent: formData.gdprConsent,
+        consent_date: new Date().toISOString(),
       });
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Submission failed");
+      if (error) throw new Error(error.message);
+
       setStatus("success");
     } catch (error: any) {
       setStatus("error");
