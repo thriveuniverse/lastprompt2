@@ -58,7 +58,6 @@ export async function POST(request: Request) {
 
       const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
       await sendNotificationEmail({
-        notificationId: process.env.NOTIF_ID_EMAIL_VERIFICATION || "",
         recipientEmail: email,
         subject: "Verify Your Email - Last Prompt",
         body: getVerificationEmailHtml(name, verifyUrl),
@@ -120,7 +119,6 @@ export async function POST(request: Request) {
     // Send verification email (keep as is)
     const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
     await sendNotificationEmail({
-      notificationId: process.env.NOTIF_ID_EMAIL_VERIFICATION || "",
       recipientEmail: email,
       subject: "Verify Your Email - Last Prompt",
       body: getVerificationEmailHtml(name, verifyUrl),
@@ -138,7 +136,6 @@ export async function POST(request: Request) {
     // Admin notification for demo requests (keep as is)
     if (isDemoRequest) {
       await sendNotificationEmail({
-        notificationId: process.env.NOTIF_ID_NEW_DEMO_REQUEST_ALERT || "",
         recipientEmail: "littlehousefrance@gmail.com",
         subject: `New Demo Request: ${name} from ${companyName || "Unknown Company"}`,
         body: getDemoConfirmEmailHtml(name, companyName),

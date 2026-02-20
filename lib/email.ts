@@ -1,40 +1,38 @@
 export async function sendNotificationEmail({
-  notificationId,
   recipientEmail,
   subject,
   body,
-  isHtml = true,
+  fromEmail,
+  senderName,
 }: {
-  notificationId: string;
   recipientEmail: string;
   subject: string;
   body: string;
-  isHtml?: boolean;
+  fromEmail?: string;
+  senderName?: string;
 }) {
-  const appUrl = process.env.NEXTAUTH_URL || "";
-  const appName = appUrl ? new URL(appUrl).hostname.split(".")[0] : "LastPrompt";
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = fromEmail || "Last Prompt <onboarding@resend.dev>"; // Use verified domain once set up in Resend
 
   try {
-    const response = await fetch("https://apps.abacus.ai/api/sendNotificationEmail", {
+    const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        deployment_token: process.env.ABACUSAI_API_KEY,
-        app_id: process.env.WEB_APP_ID,
-        notification_id: notificationId,
-        subject,
-        body,
-        is_html: isHtml,
-        recipient_email: recipientEmail,
-        sender_email: appUrl ? `noreply@${new URL(appUrl).hostname}` : undefined,
-        sender_alias: appName,
+        from: from,
+        to: recipientEmail,
+        subject: subject,
+        html: body,
       }),
     });
 
     const result = await response.json();
-    return { success: result.success, disabled: result.notification_disabled };
+    return { success: !!result.id, id: result.id };
   } catch (error) {
-    console.error("Email send error:", error);
+    console.error("Resend email send error:", error);
     return { success: false, error };
   }
 }
