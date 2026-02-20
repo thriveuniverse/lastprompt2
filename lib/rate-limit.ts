@@ -1,27 +1,46 @@
-import { prisma } from "@/lib/db";
+// lib/rate-limit.ts (new version – no Prisma)
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
 const MAX_REQUESTS = 5;
+const TABLE = 'rate_limits'; // create this table in Supabase
 
 export async function checkRateLimit(identifier: string, action: string = "form_submit"): Promise<boolean> {
-  const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW);
+  const supabase = createServerComponentClient({ cookies });
 
-  const existing = await prisma.rateLimit.findUnique({
-    where: { identifier_action: { identifier, action } },
-  });
+  const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW).toISOString();
+
+  // Find existing record
+  const { data: existing, error: findError } = await supabase
+    .from(TABLE)
+    .select('*')
+    .eq('identifier', identifier)
+    .eq('action', action)
+    .single();
+
+  if (findError && findError.code !== 'PGRST116') { // not found is ok
+    console.error('Rate limit check error:', findError);
+    return true; // fail open if DB issue
+  }
 
   if (!existing) {
-    await prisma.rateLimit.create({
-      data: { identifier, action, count: 1, windowStart: new Date() },
+    // Create new
+    await supabase.from(TABLE).insert({
+      identifier,
+      action,
+      count: 1,
+      window_start: new Date().toISOString(),
     });
     return true;
   }
 
-  if (existing.windowStart < windowStart) {
-    await prisma.rateLimit.update({
-      where: { id: existing.id },
-      data: { count: 1, windowStart: new Date() },
-    });
+  if (new Date(existing.window_start) < new Date(windowStart)) {
+    // Reset window
+    await supabase
+      .from(TABLE)
+      .update({ count: 1, window_start: new Date().toISOString() })
+      .eq('id', existing.id);
     return true;
   }
 
@@ -29,10 +48,11 @@ export async function checkRateLimit(identifier: string, action: string = "form_
     return false;
   }
 
-  await prisma.rateLimit.update({
-    where: { id: existing.id },
-    data: { count: existing.count + 1 },
-  });
+  // Increment
+  await supabase
+    .from(TABLE)
+    .update({ count: existing.count + 1 })
+    .eq('id', existing.id);
 
   return true;
 }

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
-import { checkRateLimit } from "@/lib/rate-limit";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { checkRateLimit } from "@/lib/rate-limit"; // now Supabase version
 import { calculateLeadScore } from "@/lib/lead-scoring";
 import { sendNotificationEmail, getVerificationEmailHtml, getDemoConfirmEmailHtml } from "@/lib/email";
 import crypto from "crypto";
@@ -8,11 +9,13 @@ import crypto from "crypto";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  const supabase = createServerComponentClient({ cookies });
+
   try {
     const body = await request.json();
     const { name, email, segment, interest, companyName, jobTitle, gdprConsent, isDemoRequest, source, medium, campaign, term, content, referrer } = body;
 
-    // Validation
+    // Validation (keep as is)
     if (!name || !email || !segment || !interest) {
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
     }
@@ -21,7 +24,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "GDPR consent required" }, { status: 400 });
     }
 
-    // Rate limiting
+    // Rate limiting (keep, now Supabase)
     const ip = request.headers.get("x-forwarded-for") || "unknown";
     const allowed = await checkRateLimit(ip);
     if (!allowed) {
@@ -29,17 +32,25 @@ export async function POST(request: Request) {
     }
 
     // Check existing lead
-    const existing = await prisma.lead.findUnique({ where: { email } });
+    const { data: existing, error: findError } = await supabase
+      .from('leads')
+      .select('*')
+      .eq('email', email)
+      .single();
+
+    if (findError && findError.code !== 'PGRST116') throw findError;
+
     if (existing) {
       if (existing.verified) {
         return NextResponse.json({ message: "Email already registered" }, { status: 400 });
       }
       // Resend verification
       const verifyToken = crypto.randomBytes(32).toString("hex");
-      await prisma.lead.update({
-        where: { id: existing.id },
-        data: { verifyToken },
-      });
+      await supabase
+        .from('leads')
+        .update({ verify_token: verifyToken })
+        .eq('id', existing.id);
+
       const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
       await sendNotificationEmail({
         notificationId: process.env.NOTIF_ID_EMAIL_VERIFICATION || "",
@@ -50,55 +61,58 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Verification email resent" });
     }
 
-    // Calculate score
+    // Calculate score (keep as is)
     const score = await calculateLeadScore({ segment, interest, companyName, jobTitle, source });
 
     // Create lead
     const verifyToken = crypto.randomBytes(32).toString("hex");
-    const lead = await prisma.lead.create({
-      data: {
+    const { data: lead, error: insertError } = await supabase
+      .from('leads')
+      .insert({
         email,
         name,
         segment,
         interest,
-        companyName: companyName || null,
-        jobTitle: jobTitle || null,
+        company_name: companyName || null,
+        job_title: jobTitle || null,
         source: source || null,
         medium: medium || null,
         campaign: campaign || null,
         term: term || null,
         content: content || null,
         referrer: referrer || null,
-        gdprConsent: true,
-        consentDate: new Date(),
+        gdpr_consent: true,
+        consent_date: new Date().toISOString(),
         score,
-        verifyToken,
+        verify_token: verifyToken,
         status: isDemoRequest ? "new" : "new",
-      },
-    });
+        created_at: new Date().toISOString(),
+      })
+      .select()
+      .single();
+
+    if (insertError) throw insertError;
 
     // Log consent
-    await prisma.consentLog.create({
-      data: {
-        leadId: lead.id,
-        action: "granted",
-        consentType: "marketing",
-        ipAddress: ip,
-        userAgent: request.headers.get("user-agent") || null,
-      },
+    await supabase.from('consent_logs').insert({
+      lead_id: lead.id,
+      action: "granted",
+      consent_type: "marketing",
+      ip_address: ip,
+      user_agent: request.headers.get("user-agent") || null,
+      created_at: new Date().toISOString(),
     });
 
     // Track event
-    await prisma.event.create({
-      data: {
-        leadId: lead.id,
-        type: "form_submit",
-        action: isDemoRequest ? "demo_request" : "waitlist_signup",
-        page: referrer || "unknown",
-      },
+    await supabase.from('events').insert({
+      lead_id: lead.id,
+      type: "form_submit",
+      action: isDemoRequest ? "demo_request" : "waitlist_signup",
+      page: referrer || "unknown",
+      created_at: new Date().toISOString(),
     });
 
-    // Send verification email
+    // Send verification email (keep as is)
     const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
     await sendNotificationEmail({
       notificationId: process.env.NOTIF_ID_EMAIL_VERIFICATION || "",
@@ -108,22 +122,21 @@ export async function POST(request: Request) {
     });
 
     // Log email
-    await prisma.emailLog.create({
-      data: {
-        leadId: lead.id,
-        emailType: "verification",
-        subject: "Verify Your Email - Last Prompt",
-        status: "sent",
-      },
+    await supabase.from('email_logs').insert({
+      lead_id: lead.id,
+      email_type: "verification",
+      subject: "Verify Your Email - Last Prompt",
+      status: "sent",
+      created_at: new Date().toISOString(),
     });
 
-    // Admin notification for demo requests
+    // Admin notification for demo requests (keep as is)
     if (isDemoRequest) {
       await sendNotificationEmail({
         notificationId: process.env.NOTIF_ID_NEW_DEMO_REQUEST_ALERT || "",
         recipientEmail: "littlehousefrance@gmail.com",
         subject: `New Demo Request: ${name} from ${companyName || "Unknown Company"}`,
-        body: `<div style="font-family: Arial; padding: 20px;"><h2>New Demo Request</h2><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Company:</strong> ${companyName || "N/A"}</p><p><strong>Job Title:</strong> ${jobTitle || "N/A"}</p><p><strong>Interest:</strong> ${interest}</p><p><strong>Score:</strong> ${score}</p></div>`,
+        body: getDemoConfirmEmailHtml(name, companyName, jobTitle, interest, score),
       });
     }
 
@@ -134,7 +147,10 @@ export async function POST(request: Request) {
   }
 }
 
+// GET (keep, rewritten with Supabase)
 export async function GET(request: Request) {
+  const supabase = createServerComponentClient({ cookies });
+
   try {
     const { searchParams } = new URL(request.url);
     const segment = searchParams.get("segment");
@@ -143,26 +159,21 @@ export async function GET(request: Request) {
     const search = searchParams.get("search");
     const tag = searchParams.get("tag");
 
-    const where: any = {};
-    if (segment) where.segment = segment;
-    if (status) where.status = status;
-    if (interest) where.interest = interest;
+    let query = supabase.from('leads').select('*, tags:lead_tags(*, tag:tags(*))').order('created_at', { ascending: false });
+
+    if (segment) query = query.eq('segment', segment);
+    if (status) query = query.eq('status', status);
+    if (interest) query = query.eq('interest', interest);
     if (search) {
-      where.OR = [
-        { name: { contains: search, mode: "insensitive" } },
-        { email: { contains: search, mode: "insensitive" } },
-        { companyName: { contains: search, mode: "insensitive" } },
-      ];
+      query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%,company_name.ilike.%${search}%`);
     }
     if (tag) {
-      where.tags = { some: { tag: { name: tag } } };
+      query = query.eq('tags.tag.name', tag);
     }
 
-    const leads = await prisma.lead.findMany({
-      where,
-      include: { tags: { include: { tag: true } } },
-      orderBy: { createdAt: "desc" },
-    });
+    const { data: leads, error } = await query;
+
+    if (error) throw error;
 
     return NextResponse.json(leads);
   } catch (error) {
