@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { useState } from "react";
 import { Loader2, CheckCircle2, AlertCircle, Building2, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,12 +20,8 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
     jobTitle: "",
     gdprConsent: false,
   });
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const captchaRef = useRef<HCaptcha>(null);
-
-  const siteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || "10000000-ffff-ffff-ffff-000000000001";
 
   const accentClasses = {
     cyan: "bg-cyan-500 hover:bg-cyan-600 focus:ring-cyan-500",
@@ -40,10 +35,6 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
       setErrorMessage("Please accept the privacy policy to continue.");
       return;
     }
-    if (!captchaToken) {
-      setErrorMessage("Please complete the captcha.");
-      return;
-    }
 
     setStatus("loading");
     setErrorMessage("");
@@ -55,7 +46,6 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          captchaToken,
           isDemoRequest: variant === "demo",
           source: utmParams.get("utm_source") || undefined,
           medium: utmParams.get("utm_medium") || undefined,
@@ -72,8 +62,6 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
     } catch (error: any) {
       setStatus("error");
       setErrorMessage(error?.message || "Something went wrong. Please try again.");
-      captchaRef.current?.resetCaptcha();
-      setCaptchaToken(null);
     }
   };
 
@@ -192,16 +180,6 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
           I agree to receive updates and marketing communications. I can unsubscribe at any time. See our{" "}
           <a href="/privacy" className="text-cyan-400 hover:underline">Privacy Policy</a>.
         </label>
-      </div>
-
-      <div className="flex justify-center">
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={siteKey}
-          theme="dark"
-          onVerify={(token) => setCaptchaToken(token)}
-          onExpire={() => setCaptchaToken(null)}
-        />
       </div>
 
       {errorMessage && (

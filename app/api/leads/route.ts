@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { verifyHCaptcha } from "@/lib/hcaptcha";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { calculateLeadScore } from "@/lib/lead-scoring";
 import { sendNotificationEmail, getVerificationEmailHtml, getDemoConfirmEmailHtml } from "@/lib/email";
@@ -11,7 +10,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, segment, interest, companyName, jobTitle, gdprConsent, captchaToken, isDemoRequest, source, medium, campaign, term, content, referrer } = body;
+    const { name, email, segment, interest, companyName, jobTitle, gdprConsent, isDemoRequest, source, medium, campaign, term, content, referrer } = body;
 
     // Validation
     if (!name || !email || !segment || !interest) {
@@ -27,14 +26,6 @@ export async function POST(request: Request) {
     const allowed = await checkRateLimit(ip);
     if (!allowed) {
       return NextResponse.json({ message: "Too many requests. Please try again later." }, { status: 429 });
-    }
-
-    // Captcha verification
-    if (captchaToken) {
-      const valid = await verifyHCaptcha(captchaToken);
-      if (!valid) {
-        return NextResponse.json({ message: "Captcha verification failed" }, { status: 400 });
-      }
     }
 
     // Check existing lead
