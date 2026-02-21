@@ -96,7 +96,7 @@ export function getWelcomeEmailHtml(name: string, segment: string) {
         "Early access to new features",
       ],
       cta: "Join Our Discord",
-      ctaUrl: "#discord-placeholder",
+      ctaUrl: "https://discord.gg/T2UbchWC",
     };
 
   return `
