@@ -58,7 +58,11 @@ export function getVerificationEmailHtml(name: string, verifyUrl: string) {
         <p style="margin: 0 0 20px;">Hi ${name},</p>
         <p style="margin: 0 0 20px;">Thank you for joining Last Prompt! Please verify your email address to complete your registration and start receiving updates.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${verifyUrl}" style="background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%); color: #000; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">Verify Email Address</a>
+          <a href="${verifyUrl}" style="background-color: #22d3ee; color: #000000; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">Verify Email Address</a>
+          <p style="margin-top: 15px; font-size: 12px; color: #6b7280;">
+            Button not working? Copy and paste this link:<br/>
+            <a href="${verifyUrl}" style="color: #22d3ee; text-decoration: underline;">${verifyUrl}</a>
+          </p>
         </div>
         <p style="color: #9ca3af; font-size: 14px; margin: 20px 0 0;">This link expires in 24 hours. If you didn't sign up, you can safely ignore this email.</p>
       </div>
@@ -109,7 +113,7 @@ export function getWelcomeEmailHtml(name: string, segment: string) {
           ${content.bullets.map((b) => `<li style="margin: 8px 0;">${b}</li>`).join("")}
         </ul>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${content.ctaUrl}" style="background: linear-gradient(135deg, ${isB2B ? "#f97316 0%, #dc2626" : "#22c55e 0%, #16a34a"} 100%); color: #fff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">${content.cta}</a>
+          <a href="${content.ctaUrl}" style="background-color: ${isB2B ? "#f97316" : "#22c55e"}; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">${content.cta}</a>
         </div>
       </div>
       <p style="text-align: center; color: #6b7280; font-size: 12px; margin-top: 30px;">
@@ -135,7 +139,7 @@ export function getDemoConfirmEmailHtml(name: string, companyName: string) {
           <li style="margin: 8px 0;">Personalized demo tailored to your needs</li>
         </ol>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="#calendar-placeholder" style="background: linear-gradient(135deg, #f97316 0%, #dc2626 100%); color: #fff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">Book a Time Directly</a>
+          <a href="#calendar-placeholder" style="background-color: #f97316; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">Book a Time Directly</a>
         </div>
       </div>
       <p style="text-align: center; color: #6b7280; font-size: 12px; margin-top: 30px;">&copy; 2024 Last Prompt. All rights reserved.</p>
