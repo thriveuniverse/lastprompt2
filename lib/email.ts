@@ -12,7 +12,7 @@ export async function sendNotificationEmail({
   senderName?: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = fromEmail || "Last Prompt <onboarding@resend.dev>";
+  const from = fromEmail || "Last Prompt <contact@thethriveclan.com>";
 
   console.log(`[Email] Attempting to send to ${recipientEmail}`);
   console.log(`[Email] Using API Key: ${apiKey ? "Present (Starts with " + apiKey.substring(0, 5) + "...)" : "MISSING"}`);
