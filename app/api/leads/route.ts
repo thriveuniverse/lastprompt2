@@ -20,6 +20,11 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, segment, interest, companyName, jobTitle, gdprConsent, isDemoRequest, source, medium, campaign, term, content, referrer } = body;
 
+    // Base URL detection for emails
+    const host = request.headers.get("host");
+    const protocol = host?.includes("localhost") ? "http" : "https";
+    const baseUrl = process.env.NEXTAUTH_URL || `${protocol}://${host}`;
+
     // Validation (keep as is)
     if (!name || !email || !segment || !interest) {
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
@@ -56,7 +61,7 @@ export async function POST(request: Request) {
         .update({ verify_token: verifyToken })
         .eq('id', existing.id);
 
-      const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
+      const verifyUrl = `${baseUrl}/verify?token=${verifyToken}`;
       await sendNotificationEmail({
         recipientEmail: email,
         subject: "Verify Your Email - Last Prompt",
@@ -118,8 +123,9 @@ export async function POST(request: Request) {
 
     // Send verification email (keep as is)
     console.log(`[Leads] Starting email verification process for ${email}`);
-    const verifyUrl = `${process.env.NEXTAUTH_URL}/verify?token=${verifyToken}`;
-    console.log(`[Leads] Generated Verify URL: ${verifyUrl}`);
+
+    const verifyUrl = `${baseUrl}/verify?token=${verifyToken}`;
+    console.log(`[Leads] Generated Verify URL: ${verifyUrl} (Base: ${baseUrl})`);
 
     try {
       const emailResult = await sendNotificationEmail({
