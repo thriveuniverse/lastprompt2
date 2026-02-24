@@ -137,7 +137,7 @@ export default function EnginePage() {
                             The Engine
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed mb-6">
-                            Last Prompt is not a game. It is a <span className="text-white font-medium">decision-intelligence evaluation engine</span> that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific.
+                            Last Prompt is not just a game. It is a <span className="text-white font-medium">decision-intelligence evaluation engine</span> that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific.
                         </p>
                         <p className="text-gray-500 leading-relaxed">
                             The engine evaluates the quality of human reasoning under uncertainty. It is content-agnostic, skin-agnostic, and domain-agnostic. The only constant is the rubric.
