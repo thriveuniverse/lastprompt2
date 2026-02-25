@@ -184,6 +184,9 @@ export default function HomePage() {
  <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed font-light">
               You are not just solving problems. <span className="text-white font-medium">You are navigating perspectives.</span>
             </p>
+            <p className="text-base text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+            A reflective leadership simulation about making decisions under pressure, navigating expert bias, and learning how your reasoning shapes outcomes.
+            </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <Link
                 href="/engine"
