@@ -1,14 +1,10 @@
+"use client";
 
-import { Metadata } from "next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, GraduationCap, Zap, Brain, Rocket, Globe, Shield, RefreshCw, BarChart3, Users, Target, Cpu } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "The Hidden Gap | Last Prompt",
-  description: "Why High-Achievers from the Best Schools Still Struggle to Translate Success into Judgment. A series of 12 entries explaining the logic of our engine.",
-};
+import { useEffect } from "react";
 
 const POSTS = [
   {
@@ -517,6 +513,20 @@ const POSTS = [
 ];
 
 export default function HiddenGapPage() {
+  const handleValueChange = (value: string) => {
+    if (value) {
+      // Use a small timeout to ensure the accordion has started its animation/DOM has settled
+      setTimeout(() => {
+        const element = document.getElementById(value);
+        if (element) {
+          const yOffset = -100; // Offset for a typical sticky header
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 150);
+    }
+  };
+
   return (
     <div className="pt-24 pb-20 overflow-hidden">
       {/* Background decoration */}
@@ -542,9 +552,14 @@ export default function HiddenGapPage() {
 
         {/* Accordion */}
         <div className="space-y-8">
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-4" onValueChange={handleValueChange}>
                 {POSTS.map((post) => (post.id !== "post-12" && (
-                    <AccordionItem key={post.id} value={post.id} className="border border-gray-800 rounded-xl px-4 bg-gray-900/20 hover:bg-gray-900/40 transition-all">
+                    <AccordionItem 
+                        key={post.id} 
+                        value={post.id} 
+                        id={post.id}
+                        className="border border-gray-800 rounded-xl px-4 bg-gray-900/20 hover:bg-gray-900/40 transition-all scroll-mt-24"
+                    >
                         <AccordionTrigger className="hover:no-underline py-6">
                             <div className="flex items-center gap-4 text-left">
                                 <div className="p-2 rounded-lg bg-gray-800 text-cyan-400 shrink-0">
