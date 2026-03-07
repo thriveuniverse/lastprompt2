@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown } from "lucide-react";
+import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
@@ -12,6 +12,13 @@ const NAV_ITEMS = [
     icon: Cpu,
     color: "hover:text-cyan-400 hover:bg-cyan-400/10",
     activeColor: "text-cyan-400",
+  },
+  {
+    label: "The Hidden Gap",
+    href: "/the-hidden-gap",
+    icon: BookOpen,
+    color: "hover:text-purple-400 hover:bg-purple-400/10",
+    activeColor: "text-purple-400",
   },
   {
     label: "Colony",

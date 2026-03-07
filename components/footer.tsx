@@ -26,6 +26,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/the-hidden-gap" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
+                  The Hidden Gap
+                </Link>
+              </li>
+              <li>
                 <Link href="/colony" className="text-gray-400 hover:text-green-400 transition-colors text-sm">
                   Colony
                 </Link>
