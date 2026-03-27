@@ -27,6 +27,7 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
     cyan: "bg-cyan-500 hover:bg-cyan-600 focus:ring-cyan-500",
     orange: "bg-orange-500 hover:bg-orange-600 focus:ring-orange-500",
     green: "bg-green-500 hover:bg-green-600 focus:ring-green-500",
+    purple: "bg-[#baa5e8] hover:bg-[#c9baf0] focus:ring-[#baa5e8]",
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

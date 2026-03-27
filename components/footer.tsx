@@ -40,6 +40,11 @@ export function Footer() {
                   Corporate Reckoning
                 </Link>
               </li>
+              <li>
+                <Link href="/lockwood" className="text-gray-400 hover:text-[#baa5e8] transition-colors text-sm">
+                  Lockwood
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

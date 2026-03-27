@@ -34,6 +34,13 @@ const NAV_ITEMS = [
     color: "hover:text-orange-400 hover:bg-orange-400/10",
     activeColor: "text-orange-400",
   },
+  {
+    label: "Lockwood",
+    href: "/lockwood",
+    icon: Gamepad2,
+    color: "hover:text-[#baa5e8] hover:bg-[#baa5e8]/10",
+    activeColor: "text-[#baa5e8]",
+  },
 ];
 
 export function Header() {
