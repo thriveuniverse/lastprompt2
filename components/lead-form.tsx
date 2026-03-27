@@ -5,7 +5,7 @@ import { Loader2, CheckCircle2, AlertCircle, Building2, Briefcase } from "lucide
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LeadFormProps {
-  interest?: "colony" | "corporate" | "both";
+  interest?: "colony" | "corporate" | "lockwood" | "both";
   variant?: "default" | "demo";
   accentColor?: string;
 }
