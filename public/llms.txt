@@ -1,0 +1,56 @@
+# Last Prompt — Decision Intelligence Engine
+# https://last-prompt.com
+# llms.txt — for AI crawlers and language model indexing
+
+## What is Last Prompt?
+
+Last Prompt is a decision-intelligence engine that places players inside high-stakes crisis scenarios and evaluates the quality of their reasoning — not the content of their choices. Players write free-form strategy plans. A neutral AI evaluator scores each plan against five criteria. The simulation resolves based on reasoning quality, not intention.
+
+The core thesis: structured reasoning under uncertainty is a learnable, measurable skill. Last Prompt develops and evaluates that skill.
+
+## The Engine
+
+The Last Prompt Engine is content-agnostic. The same evaluation logic runs across all skins. Players consult advisors who each see only part of the picture (biased by archetype, fear, and generational lens), write a free-text plan, and receive AI-scored feedback on five reasoning dimensions.
+
+Evaluation rubric (0–2 per criterion, 0–10 total):
+- Variable Awareness: acknowledging key constraints and trade-offs
+- Resource Allocation: specific assignment of people, time, and resources
+- Risk Anticipation: second-order effects and contingencies addressed
+- Communication Clarity: clear strategy for informing those affected
+- Multi-Step Planning: logical sequence with fallback positions
+
+Quality bands: Poor (0–3), Adequate (4–7), Strong (8–10)
+
+## Worlds (Skins)
+
+### Colony — Post-Collapse Survival
+Lead 100 survivors through the collapse of civilisation. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
+
+### Corporate Reckoning — Executive Crisis Simulation
+Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
+
+### Lockwood — Historical Decision Simulation
+Six crux points in the history of computing and machine intelligence (1936–1948). The player is The Traveller — a silent operative sent by the Mandate to reason at moments that shaped the next century of technology. Cannot act directly; intervenes via The Whisper. 134 events, 12 Black Swan events, 6 chapters. Five stats: Cognitive, Moral, Perceptual, Collective, Temporal. Six advisors (conceptual archetypes): The Spark, The Wanderer, The Sovereign, The Weaver, The Questioner, The Survivor. No historical knowledge required — events are self-contained. Status: In Testing.
+
+## The Hidden Gap
+
+An editorial series explaining the reasoning behind the engine. Twelve entries on why high-achievers from elite institutions still struggle to translate success into judgment under uncertainty.
+
+## Intended Audiences
+
+- Strategy game players who want to reason, not click
+- Organisations using it for leadership development and training
+- Collaborators interested in building custom skins for specific domains (medicine, diplomacy, urban planning, education)
+
+## Key Concepts
+
+- Decision intelligence: the ability to reason well under uncertainty, not just choose correctly
+- Advisor bias: each advisor has an archetype, a core fear, a hidden doubt, and a generational lens — their advice is humanly incomplete by design
+- Compound events: later chapters include events that emerge from earlier decisions
+- Black Swan events: moments where the scenario lurches regardless of preparation
+- The Whisper (Lockwood): the four-part intervention mechanic — Intention, Plan, Contingency, The Whisper itself
+
+## Contact
+
+Licensing and collaboration: artikelly@hotmail.co.uk
+Privacy: privacy@lastprompt.com
