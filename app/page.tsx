@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { Brain, Cpu, Layers, ChevronDown, ArrowRight, Zap, Shield, Users, Globe, Lock } from "lucide-react";
+import { Brain, Cpu, ChevronDown, ArrowRight, Users, Lock } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { LeadForm } from "@/components/lead-form";
@@ -166,6 +166,17 @@ export default function HomePage() {
               LAST PROMPT ENGINE — DECISION INTELLIGENCE SYSTEM
             </motion.div>
 
+            {/* Opening statement */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed italic font-light"
+            >
+              The real test of thinking isn&apos;t what you know when everything is tidy.
+              It&apos;s how clearly you think when the picture is partial and every advisor around you is focused on a different piece.
+            </motion.p>
+
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
               The engine that
               <br />
@@ -177,17 +188,40 @@ export default function HomePage() {
             <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed font-light">
               Not what you choose. <span className="text-white font-medium">How you reason.</span>
             </p>
-           
-            <p className="text-base text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Last Prompt is a decision-intelligence engine that places you inside a crisis, gives you biased advisors with hidden agendas, and asks you to write your plan in free text. A neutral AI then evaluates the quality of your thinking — and the simulation resolves accordingly.
+
+            {/* Not a game clarification */}
+            <p className="text-xs font-mono text-gray-600 tracking-widest mb-10">
+              NOT A GAME &nbsp;·&nbsp; NOT A TRAINING COURSE &nbsp;·&nbsp; NOT A PERSONALITY ASSESSMENT
             </p>
- <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed font-light">
-              You are not just solving problems. <span className="text-white font-medium">You are navigating perspectives.</span>
-            </p>
-            <p className="text-base text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            A reflective leadership simulation about making decisions under pressure, navigating expert bias, and learning how your reasoning shapes outcomes.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+
+            {/* Main description */}
+            <div className="max-w-2xl mx-auto mb-12 text-left space-y-4">
+              <p className="text-base text-gray-400 leading-relaxed">
+                Last Prompt places you inside real high-stakes situations where the information is always incomplete.
+              </p>
+              <p className="text-base text-gray-400 leading-relaxed">
+                You receive input from a small group of highly focused people — experts, colleagues, or advisors — each bringing their own deep expertise, priorities, and way of seeing the world. They are not trying to deceive you. They simply see the situation through their own legitimate lens.
+              </p>
+              {/* Micro-example */}
+              <div className="my-2 pl-4 border-l-2 border-gray-700 space-y-2">
+                <p className="text-xs font-mono text-gray-600 tracking-widest">EXAMPLE — ADVISOR INPUT</p>
+                <p className="text-sm text-gray-500 italic">&ldquo;The perimeter needs to hold. I don&apos;t care what the medic says about the sick — if we open the gate, we lose everything we&apos;ve built.&rdquo;</p>
+                <p className="text-xs text-gray-600">— Joe Edwards, Head of Security &nbsp;|&nbsp; His view is legitimate. It is also incomplete.</p>
+              </div>
+              <p className="text-base text-gray-400 leading-relaxed">
+                You then write your plan in your own words.
+              </p>
+              <p className="text-base text-gray-400 leading-relaxed">
+                A neutral AI reads it and scores a single dimension — the quality of your reasoning — across five criteria: how clearly you identified the constraints and trade-offs, how specifically you allocated resources, how concretely you anticipated second-order effects, how deliberately you planned your communications, and how logically you sequenced your actions.
+              </p>
+              <p className="text-base text-gray-400 leading-relaxed">
+                The simulation then plays out the consequences of that quality of thinking.
+              </p>
+              <p className="text-base text-white font-medium leading-relaxed">
+                No gamification. No feel-good feedback. Just private, repeatable practice at the one skill that consistently separates capable people from people who make good calls when the stakes are high and nothing is clear.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
               <Link
                 href="/engine"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg transition-all duration-200 text-sm tracking-wide"
@@ -203,6 +237,9 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+            <p className="text-xs font-mono text-gray-600 tracking-wide mb-14">
+              LOCKWOOD — IN TESTING &nbsp;·&nbsp; COLONY &amp; CORPORATE RECKONING — IN DEVELOPMENT &nbsp;·&nbsp; REGISTER INTEREST BELOW
+            </p>
 
             {/* Stat preview */}
             <motion.div
@@ -278,7 +315,7 @@ export default function HomePage() {
               {[
                 { icon: Brain, title: "One engine. Infinite worlds.", desc: "The Last Prompt Engine is content-agnostic. The same evaluation logic powers a post-collapse colony, a corporate crisis, and an off-world settlement. Swap the skin, keep the intelligence.", color: "text-cyan-400" },
                 { icon: Lock, title: "The AI cannot be gamed.", desc: "The evaluator runs at temperature 0. It has no pity. It penalises short plans, vague contingencies, and ignored constraints. You cannot ask it for full marks.", color: "text-amber-400" },
-                { icon: Users, title: "Advisors with real psychology.", desc: "Every character has an archetype, a core fear, a hidden doubt, and a generational lens. Their advice is humanly incomplete — by design.", color: "text-violet-400" },
+                { icon: Users, title: "Advisors with real expertise.", desc: "Every advisor is fully committed to their domain. Their perspective is honest, hard-won, and partial — because that is what genuine expertise looks like.", color: "text-violet-400" },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -511,7 +548,7 @@ export default function HomePage() {
 
       {/* ── WHO IS THIS FOR ── */}
       <section className="py-24 bg-gray-950">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -519,68 +556,49 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Who Is This For</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mt-4 mb-4">Three audiences. One engine.</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mt-4 mb-4">For you if&hellip;</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {[
-              {
-                icon: Zap,
-                label: "PLAYERS",
-                title: "Strategy gamers who want to think, not click.",
-                desc: "If you're frustrated by games that reward memorisation over reasoning, Last Prompt was built for you. Your plan is the move. Your thinking is the mechanic.",
-                color: "text-green-400",
-                border: "border-green-500/20",
-                bg: "bg-green-950/10",
-                cta: "Explore Colony",
-                href: "/colony",
-              },
-              {
-                icon: Globe,
-                label: "ORGANISATIONS",
-                title: "Leadership development that isn't a PowerPoint.",
-                desc: "Deploy Corporate Reckoning as a training tool for senior leaders. The AI evaluator provides 1:1 feedback on reasoning quality — not personality types or team roles.",
-                color: "text-orange-400",
-                border: "border-orange-500/20",
-                bg: "bg-orange-950/10",
-                cta: "Explore Corporate",
-                href: "/corporate-crisis",
-              },
-              {
-                icon: Layers,
-                label: "COLLABORATORS",
-                title: "Build a skin for your world.",
-                desc: "The engine is modular. If you have a domain — medicine, diplomacy, urban planning, education — and you're frustrated by polarised thinking, let's talk about building a skin together.",
-                color: "text-violet-400",
-                border: "border-violet-500/20",
-                bg: "bg-violet-950/10",
-                cta: "Get in touch",
-                href: "#contact",
-              },
-            ].map((item, i) => (
+              "You have sat in a room where every expert gave good advice and the decision was still wrong.",
+              "You want to find out how clearly you actually think under pressure — not just assume you do.",
+              "You find most simulations too shallow: they reward the right answer, not the quality of reasoning.",
+              "Your work involves navigating competing priorities, incomplete information, and people who each see only part of the picture.",
+              "You are building something — a team, an organisation, a discipline — and clear thinking under uncertainty is the skill that matters most.",
+              "You are curious whether a neutral AI would score your reasoning the same way you score it yourself.",
+            ].map((line, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.07 }}
                 viewport={{ once: true }}
-                className={`p-7 rounded-2xl border ${item.border} ${item.bg} flex flex-col`}
+                className="flex items-start gap-4 p-5 bg-gray-900/40 border border-gray-800 rounded-xl"
               >
-                <div className={`w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center mb-4`}>
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
-                </div>
-                <div className={`text-xs font-mono ${item.color} tracking-widest mb-2`}>{item.label}</div>
-                <h3 className="text-white font-bold text-lg mb-3 leading-snug">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-6">{item.desc}</p>
-                <Link
-                  href={item.href}
-                  className={`inline-flex items-center gap-2 text-sm font-medium ${item.color} hover:opacity-80 transition-opacity`}
-                >
-                  {item.cta} <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <span className="shrink-0 mt-0.5 text-xs font-mono text-cyan-400 w-6">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-gray-300 leading-relaxed">{line}</p>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-10 p-6 border border-gray-800 rounded-xl text-center"
+          >
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+              If your organisation has specific challenges — clinical decisions, regulatory risk, leadership under pressure — the engine is modular. We build a skin with scenarios directly relevant to your people.
+            </p>
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              Talk to us about a custom skin <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
