@@ -10,7 +10,7 @@ The core thesis: structured reasoning under uncertainty is a learnable, measurab
 
 ## The Engine
 
-The Last Prompt Engine is content-agnostic. The same evaluation logic runs across all skins. Players consult advisors who each see only part of the picture (biased by archetype, fear, and generational lens), write a free-text plan, and receive AI-scored feedback on five reasoning dimensions.
+The Last Prompt Engine is content-agnostic. The same evaluation logic runs across all skins. Players consult advisors who each see only part of the picture — each brings genuine expertise and a naturally limited perspective shaped by their domain, experience, and priorities. Players write a free-text plan and receive AI-scored feedback on five reasoning dimensions.
 
 Evaluation rubric (0–2 per criterion, 0–10 total):
 - Variable Awareness: acknowledging key constraints and trade-offs
@@ -27,7 +27,7 @@ Quality bands: Poor (0–3), Adequate (4–7), Strong (8–10)
 Lead 100 survivors through the collapse of civilisation. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
 
 ### Corporate Reckoning — Executive Crisis Simulation
-Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
+Navigate a corporate crisis as a senior leader with competing advisors and a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
 
 ### Lockwood — Historical Decision Simulation
 Six crux points in the history of computing and machine intelligence (1936–1948). The player is The Traveller — a silent operative sent by the Mandate to reason at moments that shaped the next century of technology. Cannot act directly; intervenes via The Whisper. 134 events, 12 Black Swan events, 6 chapters. Five stats: Cognitive, Moral, Perceptual, Collective, Temporal. Six advisors (conceptual archetypes): The Spark, The Wanderer, The Sovereign, The Weaver, The Questioner, The Survivor. No historical knowledge required — events are self-contained. Status: In Testing.
@@ -36,21 +36,39 @@ Six crux points in the history of computing and machine intelligence (1936–194
 
 An editorial series explaining the reasoning behind the engine. Twelve entries on why high-achievers from elite institutions still struggle to translate success into judgment under uncertainty.
 
-## Intended Audiences
+## Who it is for
 
-- Strategy game players who want to reason, not click
-- Organisations using it for leadership development and training
-- Collaborators interested in building custom skins for specific domains (medicine, diplomacy, urban planning, education)
+Last Prompt is not defined by demographic or profession. It is for anyone who:
+- Has sat in a room where every expert gave good advice and the decision was still wrong
+- Wants to find out how clearly they actually think under pressure — not just assume they do
+- Finds most simulations too shallow: rewarding the right answer rather than the quality of reasoning
+- Works in environments with competing priorities, incomplete information, and people who each see only part of the picture
+- Is building something — a team, an organisation, a discipline — where clear thinking under uncertainty is the skill that matters most
+
+Organisations can commission custom skins for specific domains (clinical decisions, regulatory risk, leadership under pressure).
 
 ## Key Concepts
 
 - Decision intelligence: the ability to reason well under uncertainty, not just choose correctly
-- Advisor bias: each advisor has an archetype, a core fear, a hidden doubt, and a generational lens — their advice is humanly incomplete by design
+- Advisor perspective: each advisor has deep expertise in their domain and a naturally partial view — their advice is honest and incomplete by nature, not by design as a trick
 - Compound events: later chapters include events that emerge from earlier decisions
 - Black Swan events: moments where the scenario lurches regardless of preparation
 - The Whisper (Lockwood): the four-part intervention mechanic — Intention, Plan, Contingency, The Whisper itself
 
+## Theoretical grounding
+
+The engine has structural parallels with Observer Patch Holography (OPH), developed by physicist Bernhard Mueller. OPH proposes that reality emerges from overlapping limited observers who must stay consistent wherever their patches meet. In Last Prompt, advisors function as limited-patch observers; the AI evaluator enforces consistency; and outcomes emerge from the quality of the player's patch synthesis. Full mapping: https://last-prompt.com/observer-patch-holography
+
+## Pages
+
+- https://last-prompt.com — home, engine overview, skins, evaluation rubric
+- https://last-prompt.com/engine — full engine specification
+- https://last-prompt.com/lockwood — Lockwood skin
+- https://last-prompt.com/colony — Colony skin
+- https://last-prompt.com/corporate-crisis — Corporate Reckoning skin
+- https://last-prompt.com/the-hidden-gap — editorial context on the reasoning gap
+- https://last-prompt.com/observer-patch-holography — OPH theoretical grounding
+
 ## Contact
 
 Licensing and collaboration: artikelly@hotmail.co.uk
-Privacy: privacy@lastprompt.com

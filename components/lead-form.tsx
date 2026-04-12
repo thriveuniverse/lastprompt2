@@ -74,8 +74,8 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
         className="text-center py-12 px-6 bg-gray-800/50 rounded-xl border border-gray-700"
       >
         <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-white mb-2">Check Your Email!</h3>
-        <p className="text-gray-400">We've sent you a verification link. Click it to confirm your subscription.</p>
+        <h3 className="text-xl font-bold text-white mb-2">Application received.</h3>
+        <p className="text-gray-400">We will review and reach out directly. Check your email for a confirmation link.</p>
       </motion.div>
     );
   }
@@ -109,26 +109,29 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">I am a...</label>
+          <label className="block text-sm font-medium text-gray-300 mb-1">I am applying as...</label>
           <select
             value={formData.segment}
             onChange={(e) => setFormData({ ...formData, segment: e.target.value })}
             className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
           >
-            <option value="player">Player / Gamer</option>
-            <option value="b2b">Business / Corporate</option>
+            <option value="individual">An individual — testing my own reasoning</option>
+            <option value="b2b">An organisation — developing my team</option>
+            <option value="researcher">A researcher or academic</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">Interested in</label>
+          <label className="block text-sm font-medium text-gray-300 mb-1">Skin preference</label>
           <select
             value={formData.interest}
             onChange={(e) => setFormData({ ...formData, interest: e.target.value as any })}
             className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
           >
-            <option value="colony">Colony</option>
-            <option value="corporate">Corporate Crisis</option>
-            <option value="both">Both</option>
+            <option value="both">No preference — any skin</option>
+            <option value="lockwood">Lockwood (historical / philosophical)</option>
+            <option value="colony">Colony (post-collapse survival)</option>
+            <option value="corporate">Corporate Reckoning (executive crisis)</option>
           </select>
         </div>
       </div>
@@ -203,7 +206,7 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
         ) : variant === "demo" ? (
           "Request Demo"
         ) : (
-          "Join the Waitlist"
+          "Apply for Beta Access"
         )}
       </button>
     </form>

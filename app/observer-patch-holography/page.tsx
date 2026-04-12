@@ -73,9 +73,48 @@ const TABLE_ROWS = [
   },
 ];
 
+const SCHEMA_ARTICLE = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Observer Patch Holography and Last Prompt",
+  "description":
+    "How Bernhard Mueller's Observer Patch Holography maps to the Last Prompt decision intelligence engine — a practical application of OPH's core insights about limited observers, consistency enforcement, and emergent reality.",
+  "url": "https://last-prompt.com/observer-patch-holography",
+  "author": {
+    "@type": "Organization",
+    "name": "Last Prompt",
+    "url": "https://last-prompt.com",
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Last Prompt",
+    "url": "https://last-prompt.com",
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Observer Patch Holography",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography",
+    },
+    {
+      "@type": "Thing",
+      "name": "Decision Intelligence",
+    },
+  ],
+  "mentions": {
+    "@type": "Person",
+    "name": "Bernhard Mueller",
+    "knowsAbout": "Observer Patch Holography",
+  },
+};
+
 export default function OPHPage() {
   return (
     <div className="min-h-screen bg-[#050810] text-gray-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_ARTICLE) }}
+      />
       {/* Top nav */}
       <div className="max-w-[860px] mx-auto px-6 pt-10 pb-4">
         <Link
@@ -319,8 +358,8 @@ export default function OPHPage() {
             <p className="text-xs font-mono text-cyan-400 tracking-widest mb-3">TRY THE ENGINE</p>
             <p className="text-gray-400 leading-relaxed mb-4 text-sm">
               If the OPH framing resonates — and you want to experience what patch synthesis under
-              uncertainty actually feels like as a practice — the Lockwood skin is currently in testing.
-              Register your interest and we will reach out when access opens.
+              uncertainty actually feels like as a practice — all three skins are currently in testing.
+              Apply for beta access and we will reach out directly.
             </p>
             <Link
               href="/#contact"

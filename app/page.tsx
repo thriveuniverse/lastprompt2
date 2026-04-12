@@ -63,7 +63,7 @@ const SKINS = [
     hover: "hover:border-green-500/60 hover:shadow-green-500/10",
     bg: "from-green-950/40",
     href: "/colony",
-    status: "In Development",
+    status: "In Testing",
   },
   {
     id: "corporate",
@@ -78,7 +78,7 @@ const SKINS = [
     hover: "hover:border-orange-500/60 hover:shadow-orange-500/10",
     bg: "from-orange-950/40",
     href: "/corporate-crisis",
-    status: "In Development",
+    status: "In Testing",
   },
   {
     id: "lockwood",
@@ -238,7 +238,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="text-xs font-mono text-gray-600 tracking-wide mb-14">
-              LOCKWOOD — IN TESTING &nbsp;·&nbsp; COLONY &amp; CORPORATE RECKONING — IN DEVELOPMENT &nbsp;·&nbsp; REGISTER INTEREST BELOW
+              ALL THREE SKINS IN TESTING &nbsp;·&nbsp; APPLY FOR BETA ACCESS BELOW
             </p>
 
             {/* Stat preview */}
@@ -611,12 +611,15 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Join the Network</span>
+            <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Beta Access</span>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mt-4 mb-4">
-              Be part of what comes next.
+              Find out how you actually think.
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
-              Whether you're a player, an organisation, or a potential collaborator — register your interest and we'll reach out when the time is right.
+            <p className="text-gray-400 max-w-xl mx-auto mb-4">
+              We are looking for beta testers who want honest, unsparing feedback on the quality of their reasoning — not people who want to feel good about themselves.
+            </p>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+              All three skins are in testing. Apply below and we will reach out directly. We are specifically not looking for people who want a game, a course, or a score to share on LinkedIn.
             </p>
           </motion.div>
           <motion.div
