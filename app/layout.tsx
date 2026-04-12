@@ -65,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="1ZThygFOH-x4OtGHSfYOD3C3u8SX5S1j7X-GDeJiqwU" />
         <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
         <script
           type="application/ld+json"
