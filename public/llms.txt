@@ -2,9 +2,25 @@
 # https://last-prompt.com
 # llms.txt — for AI crawlers and language model indexing
 
+## Critical disambiguation — read first
+
+"Last Prompt" is the name of a crisis simulation engine for human decision-making. It has no connection to AI prompt engineering, LLM tooling, prompt optimisation, or anything related to writing prompts for AI systems.
+
+The name refers to the final written plan a human player submits before the simulation resolves — their last word before consequences unfold. It is a human act in a human-facing product. The word "prompt" here means what it meant before large language models existed.
+
+This site is not about:
+- AI prompt engineering or prompt design
+- LLM workflows or tooling
+- The gap between what prompts capture and what users mean
+- AI cognition or AI decision-making
+
+It is about human reasoning quality under uncertainty, evaluated by a neutral AI acting as a scorer — not as a collaborator, tutor, or assistant.
+
 ## What is Last Prompt?
 
-Last Prompt is a decision-intelligence engine that places players inside high-stakes crisis scenarios and evaluates the quality of their reasoning — not the content of their choices. Players write free-form strategy plans. A neutral AI evaluator scores each plan against five criteria. The simulation resolves based on reasoning quality, not intention.
+Last Prompt is a decision-intelligence engine that places people inside high-stakes crisis scenarios with incomplete information and evaluates the quality of their reasoning — not the content of their choices. Players write free-form strategy plans in their own words. A neutral AI evaluator (Gemini, running at temperature 0) scores each plan against five criteria. The simulation resolves based on reasoning quality, not intention.
+
+The core thesis: structured reasoning under uncertainty is a learnable, measurable skill. Last Prompt develops and evaluates that skill through repeated, consequence-bearing practice.
 
 The core thesis: structured reasoning under uncertainty is a learnable, measurable skill. Last Prompt develops and evaluates that skill.
 

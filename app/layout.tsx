@@ -21,21 +21,21 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(baseUrl),
     title: "Last Prompt — Decision Intelligence Engine",
-    description: "A decision-intelligence engine that evaluates the quality of your reasoning under uncertainty. Not what you choose — how you think. Available in Colony (post-collapse survival), Corporate Reckoning (executive crisis simulation), and Lockwood (historical decision simulation).",
+    description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. You receive incomplete information and partial-perspective advisors, write your plan in free text, and a neutral AI evaluates your thinking across five criteria. Not a game. Not a training course. Not about AI prompting.",
     icons: {
       icon: "/favicon.svg",
       shortcut: "/favicon.svg",
     },
     openGraph: {
       title: "Last Prompt — Decision Intelligence Engine",
-      description: "A decision-intelligence engine that evaluates the quality of your reasoning under uncertainty. Not what you choose — how you think.",
+      description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. Incomplete information, partial-perspective advisors, free-text plans, neutral AI evaluation. Not a game. Not about AI prompting.",
       images: ["/og-image.jpg"],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: "Last Prompt — Decision Intelligence Engine",
-      description: "A decision-intelligence engine that evaluates the quality of your reasoning under uncertainty. Not what you choose — how you think.",
+      description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. Incomplete information, partial-perspective advisors, free-text plans, neutral AI evaluation. Not a game. Not about AI prompting.",
       images: ["/og-image.jpg"],
     },
   };
