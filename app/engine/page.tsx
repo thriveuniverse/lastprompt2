@@ -137,11 +137,36 @@ export default function EnginePage() {
                             The Engine
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed mb-6">
-                            Last Prompt is not just a game. It is a <span className="text-white font-medium">decision-intelligence evaluation engine</span> that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific.
+                            A <span className="text-white font-medium">decision-intelligence evaluation engine</span> that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific. The same evaluation logic runs in every world.
                         </p>
                         <p className="text-gray-500 leading-relaxed">
                             The engine evaluates the quality of human reasoning under uncertainty. It is content-agnostic, skin-agnostic, and domain-agnostic. The only constant is the rubric.
                         </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ── ABOUT THE NAME ── */}
+            <section className="py-16 bg-gray-950 border-b border-gray-900">
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="max-w-2xl"
+                    >
+                        <span className="text-xs font-mono text-gray-600 tracking-widest uppercase">About the name</span>
+                        <blockquote className="mt-5 pl-5 border-l-2 border-gray-700 space-y-4 text-gray-400 leading-relaxed">
+                            <p>
+                                A prompt, in its oldest sense, is a nudge — a cue that moves thinking in a new direction without dictating where it lands. In Last Prompt, your advisors prompt you. Your questions prompt them. The crisis itself prompts the situation.
+                            </p>
+                            <p>
+                                But the last prompt — the only input that actually moves the simulation — is yours. The plan you write, in your own words, which a neutral AI then receives and evaluates. We named it for that moment: the last word before consequences unfold.
+                            </p>
+                            <p className="text-gray-600 text-sm">
+                                This has no connection to AI prompt engineering or LLM tooling. The word means what it meant before large language models existed.
+                            </p>
+                        </blockquote>
                     </motion.div>
                 </div>
             </section>
@@ -435,9 +460,15 @@ export default function EnginePage() {
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
                             <h3 className="text-white font-bold text-2xl mb-1">See the engine in action.</h3>
-                            <p className="text-gray-500">Explore the two live skins currently in development.</p>
+                            <p className="text-gray-500">All three skins are in testing. Apply for beta access.</p>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap gap-4">
+                            <Link
+                                href="/lockwood"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500/10 hover:bg-purple-500/20 border border-[#baa5e8]/30 text-[#baa5e8] rounded-lg transition-all text-sm font-medium"
+                            >
+                                Lockwood <ArrowRight className="w-4 h-4" />
+                            </Link>
                             <Link
                                 href="/colony"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 text-green-400 rounded-lg transition-all text-sm font-medium"
