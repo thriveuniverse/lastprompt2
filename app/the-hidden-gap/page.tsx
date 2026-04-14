@@ -228,7 +228,7 @@ export default function HiddenGapPage() {
           {/* OPH bridge */}
           <section className="space-y-3">
             <p className="leading-relaxed text-gray-600 text-sm italic">
-              The compounding-consequence structure at the heart of Last Prompt has an unexpected
+              The compounding-consequence structure at the heart of Last Prompt has a striking
               parallel in theoretical physics. If you&apos;re curious about why partial perspectives
               and synthesis under uncertainty turn out to be foundational — not just to good
               decisions, but to how reality itself appears to work — that thread continues{" "}
