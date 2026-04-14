@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
@@ -253,7 +254,43 @@ export default function OPHPage() {
           </p>
         </section>
 
-        {/* Section 5 — Mapping table */}
+        {/* Section 5 — Observer patches visualised */}
+        <section className="py-12 border-b border-gray-800">
+          <Image
+            src="/applied-observer-patch-holography.jpg"
+            alt="Observer Patch Holography visualised through Last Prompt Lockwood: three stages from separate advisor observer patches, through first overlaps, to complex synthesis emerging from the Traveller's reasoning"
+            width={1200}
+            height={600}
+            className="w-full rounded-xl border border-gray-800"
+            priority={false}
+          />
+          <div className="mt-8 space-y-4">
+            <p className="leading-relaxed text-gray-400">
+              In Observer Patch Holography, reality is not handed down as one perfect view. It emerges
+              from limited observers — each seeing only part of the picture — and the quality of the
+              synthesis they create where their patches overlap.
+            </p>
+            <p className="leading-relaxed text-gray-400">
+              The graphic above shows this process. On the left, the advisors exist as separate patches
+              with their own focused expertise and perspective. As you engage with them, the overlaps
+              begin to form. The more coherently you reason, the richer and more complex those
+              interconnections become. What appears in the final image is your unique synthesis — every
+              Traveller builds different relationships with the advisors, shaped by the questions you ask
+              and the patterns you notice.
+            </p>
+            <hr className="border-gray-800 my-6" />
+            <p className="leading-relaxed text-gray-600 text-sm italic">
+              The situations themselves are never chosen at random. Each chapter opens with the real
+              historical moment, after which the Mandate quietly selects what comes next by sensing the
+              pressures in the current environment and the shape your recent decisions are giving the
+              thread. The influence is subtle — more like a slow current than an obvious hand. The more
+              open you remain to the connections between events, the more clearly you feel the thread
+              responding.
+            </p>
+          </div>
+        </section>
+
+        {/* Section 6 — Mapping table (renumbered) */}
         <section className="py-12 border-b border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-2">The mapping</h2>
           <p className="text-gray-500 text-sm mb-8">
@@ -298,7 +335,7 @@ export default function OPHPage() {
           </div>
         </section>
 
-        {/* Section 6 — The practical conclusion */}
+        {/* Section 7 — The practical conclusion */}
         <section className="py-12 border-b border-gray-800 space-y-5">
           <h2 className="text-2xl font-bold text-white">From fundamental physics to practical judgment</h2>
           <p className="leading-relaxed">
@@ -318,7 +355,7 @@ export default function OPHPage() {
           </p>
         </section>
 
-        {/* Section 7 — Resources + CTA */}
+        {/* Section 8 — Resources + CTA */}
         <section className="py-12 space-y-8">
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Start with OPH</h2>
