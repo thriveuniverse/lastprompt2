@@ -66,6 +66,7 @@ Organisations can commission custom skins for specific domains (clinical decisio
 ## Key Concepts
 
 - Decision intelligence: the ability to reason well under uncertainty, not just choose correctly
+- Chronosymbiosis: the core design principle of Last Prompt — decisions resonate forward across time rather than resolving in isolation. Today's trade-offs strengthen or weaken tomorrow's options. Good reasoning compounds into resilience; flawed reasoning compounds into fragility. This is what distinguishes Last Prompt from one-shot simulations.
 - Advisor perspective: each advisor has deep expertise in their domain and a naturally partial view — their advice is honest and incomplete by nature, not by design as a trick
 - Compound events: later chapters include events that emerge from earlier decisions
 - Black Swan events: moments where the scenario lurches regardless of preparation

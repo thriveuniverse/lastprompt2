@@ -41,20 +41,24 @@ export default function HiddenGapPage() {
               Last Prompt was built to close that gap.
             </p>
             <p>
-              It is a decision intelligence engine based on one core idea: judgment develops
-              through reps, and those reps can be safely compressed.
+              It is a decision intelligence engine built around one idea:{" "}
+              <span className="text-white font-semibold">Chronosymbiosis</span>.
             </p>
             <p>
-              You are placed inside high-stakes situations with incomplete information. You
-              receive input from advisors — each with genuine expertise but a naturally limited,
-              partial view. You write your plan in your own words. A neutral AI evaluates the
-              quality of your reasoning across clear criteria. The simulation then evolves based
-              on your decisions, cycle after cycle.
+              Chronosymbiosis means your decisions don&apos;t vanish after one moment — they
+              resonate forward across time. Today&apos;s trade-offs quietly strengthen or weaken
+              tomorrow&apos;s options. Good reasoning compounds into resilience. Flawed reasoning
+              compounds into fragility.
             </p>
             <p>
-              Poor reasoning compounds into fragility. Strong reasoning builds resilience.
-              You see exactly where your thinking broke down — then you go again, with one
-              more rep behind you.
+              In practice: you are placed inside high-stakes situations with incomplete information
+              and input from advisors who each see only part of the picture. You write your plan in
+              your own words. A neutral evaluator scores the quality of your thinking. The world
+              then evolves based on your decisions, cycle after cycle.
+            </p>
+            <p>
+              You get to see — clearly and honestly — where your reasoning broke down. Then you go
+              again, with one more rep behind you.
             </p>
             <p className="text-white italic">
               It is not a game. It is not a training course. It is repetition, at speed,
