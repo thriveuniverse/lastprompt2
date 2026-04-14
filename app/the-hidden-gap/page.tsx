@@ -22,13 +22,56 @@ export default function HiddenGapPage() {
           <p className="text-xs font-mono text-cyan-400 tracking-widest mb-4 uppercase">
             The Hidden Gap
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
-            Why the credential stopped being enough
+          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-8">
+            High-achievers from the best schools still feel completely at sea.
           </h1>
-          <p className="text-gray-500 text-lg leading-relaxed">
-            On post-industrial education, the organisations that compound its failure,
-            and why the skill that matters most is the one least likely to develop on its own.
-          </p>
+
+          <div className="space-y-5 text-gray-300 leading-relaxed">
+            <p>
+              The ones who aced every test and survived the most intense preparation.
+              They&apos;ve mastered theory. They&apos;ve crushed structured problems.
+              But when variables shift, information is incomplete, priorities collide, and
+              consequences ripple in ways no textbook warned them about — they freeze,
+              over-delegate, or bounce decisions.
+            </p>
+            <p>
+              Education systems have demonstrably failed to prepare people for this.
+            </p>
+            <p className="text-white font-medium">
+              Last Prompt was built to close that gap.
+            </p>
+            <p>
+              It is a decision intelligence engine based on one core idea: judgment develops
+              through reps, and those reps can be safely compressed.
+            </p>
+            <p>
+              You are placed inside high-stakes situations with incomplete information. You
+              receive input from advisors — each with genuine expertise but a naturally limited,
+              partial view. You write your plan in your own words. A neutral AI evaluates the
+              quality of your reasoning across clear criteria. The simulation then evolves based
+              on your decisions, cycle after cycle.
+            </p>
+            <p>
+              Poor reasoning compounds into fragility. Strong reasoning builds resilience.
+              You see exactly where your thinking broke down — then you go again, with one
+              more rep behind you.
+            </p>
+            <p className="text-white italic">
+              It is not a game. It is not a training course. It is repetition, at speed,
+              in conditions complex enough to matter.
+            </p>
+            <p>
+              The gap between credential and real judgment is real, structural, and not going
+              away on its own. But it is closeable — not through more school, and not through
+              waiting for experience to accumulate at its natural pace.
+            </p>
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-gray-800">
+            <p className="text-gray-500 text-sm leading-relaxed">
+              If that resonates — here&apos;s why the gap exists in the first place.
+            </p>
+          </div>
         </header>
 
         {/* Body */}
@@ -163,38 +206,18 @@ export default function HiddenGapPage() {
           {/* Section 6 */}
           <section className="space-y-5">
             <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              What Last Prompt does about it
+              The only way through
             </p>
             <p className="leading-relaxed text-gray-400">
-              Last Prompt is a decision intelligence engine built around a single idea: judgment
-              develops through reps, and reps can be compressed.
+              The gap is structural and it compounds. More credentials do not close it. Waiting for
+              experience to accumulate at its natural pace — one consequential decision per quarter,
+              if you are lucky — does not close it fast enough. The environment changes shape faster
+              than the reps arrive.
             </p>
             <p className="leading-relaxed text-gray-400">
-              You are placed inside a high-stakes situation with incomplete information. You receive
-              input from a small group of advisors — each with genuine expertise and a naturally
-              partial view, shaped by their domain and experience. You write your plan in your own
-              words. A neutral AI evaluates the quality of your reasoning across five criteria. The
-              simulation resolves accordingly.
-            </p>
-            <p className="leading-relaxed text-gray-400">
-              The engine does not reward the right answer. It rewards the quality of the thinking.
-              Poor reasoning compounds into fragility. Strong reasoning builds resilience. You see
-              exactly where your thinking broke down. Then you go again — this time with one more
-              rep behind you.
-            </p>
-
-            {/* Final pull quote */}
-            <blockquote className="pl-5 border-l-2 border-cyan-500/40 my-8">
-              <p className="text-white text-lg leading-relaxed font-light italic">
-                It is not a game. It is not a training course.
-                It is repetition, at speed, in conditions complex enough to matter.
-              </p>
-            </blockquote>
-
-            <p className="leading-relaxed text-gray-400">
-              The gap between credential and judgment is real, structural, and not going away on its
-              own. But it is closeable — not through more school, and not through waiting for
-              experience to accumulate at its natural pace.
+              What closes it is volume, feedback, and consequence — compressed into a format where
+              the cost of being wrong is information rather than damage. That is what Last Prompt
+              was built to provide.
             </p>
           </section>
 
