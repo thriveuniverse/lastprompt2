@@ -20,22 +20,22 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: "Last Prompt — Decision Intelligence Engine",
-    description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. You receive incomplete information and partial-perspective advisors, write your plan in free text, and a neutral AI evaluates your thinking across five criteria. Not a game. Not a training course. Not about AI prompting.",
+    title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
+    description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Powered by the Last Prompt engine. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
     icons: {
       icon: "/favicon.svg",
       shortcut: "/favicon.svg",
     },
     openGraph: {
-      title: "Last Prompt — Decision Intelligence Engine",
-      description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. Incomplete information, partial-perspective advisors, free-text plans, neutral AI evaluation. Not a game. Not about AI prompting.",
+      title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
+      description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
       images: ["/og-image.jpg"],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Last Prompt — Decision Intelligence Engine",
-      description: "A crisis simulation engine that scores the quality of human reasoning under uncertainty. Incomplete information, partial-perspective advisors, free-text plans, neutral AI evaluation. Not a game. Not about AI prompting.",
+      title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
+      description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
       images: ["/og-image.jpg"],
     },
   };
@@ -44,9 +44,23 @@ export async function generateMetadata(): Promise<Metadata> {
 const SCHEMA_WEBSITE = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Last Prompt",
+  "name": "The Mandate",
   "url": "https://last-prompt.com",
-  "description": "A decision-intelligence engine that evaluates the quality of your reasoning under uncertainty. Not what you choose — how you think.",
+  "description": "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
+};
+
+const SCHEMA_APPLICATION = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "The Mandate",
+  "applicationCategory": "DecisionIntelligence",
+  "operatingSystem": "Web",
+  "description": "A private decision intelligence platform. Users write plans in plain English under high-stakes scenarios with incomplete information. A neutral AI evaluates the quality of their reasoning — not their choices — across five criteria. No two paths are the same. There is no undo.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Last Prompt",
+    "description": "The proprietary engine powering The Mandate."
+  },
 };
 
 const SCHEMA_ORGANIZATION = {
@@ -70,6 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_WEBSITE) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_APPLICATION) }}
         />
         <script
           type="application/ld+json"

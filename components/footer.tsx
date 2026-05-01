@@ -7,14 +7,14 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="text-lg font-black text-white mb-1">
-              LAST <span className="text-cyan-400">PROMPT</span>
+            <h3 className="font-satoshi text-lg font-bold text-[#C9A66B] mb-1">
+              THE MANDATE
             </h3>
-            <p className="text-[10px] font-mono text-gray-600 tracking-[0.2em] uppercase mb-4">
-              Decision Intelligence Engine
+            <p className="text-[9px] font-mono text-cyan-400/50 tracking-[0.15em] uppercase mb-4">
+              Powered by Last Prompt
             </p>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              A decision-intelligence engine that evaluates the quality of your reasoning under uncertainty. Not what you choose — how you think.
+              A private decision intelligence platform. Not what you choose — how you reason.
             </p>
           </div>
           <div>
@@ -31,17 +31,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/colony" className="text-gray-400 hover:text-green-400 transition-colors text-sm">
+                <Link href="/colony" className="text-gray-400 hover:text-[#D0633A] transition-colors text-sm">
                   Colony
                 </Link>
               </li>
               <li>
-                <Link href="/corporate-crisis" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                <Link href="/corporate-crisis" className="text-gray-400 hover:text-[#3498DB] transition-colors text-sm">
                   Corporate Reckoning
                 </Link>
               </li>
               <li>
-                <Link href="/lockwood" className="text-gray-400 hover:text-[#baa5e8] transition-colors text-sm">
+                <Link href="/lockwood" className="text-gray-400 hover:text-[#BAA5E8] transition-colors text-sm">
                   Lockwood
                 </Link>
               </li>

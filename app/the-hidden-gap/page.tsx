@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function HiddenGapPage() {
   return (
-    <div className="min-h-screen bg-[#050810] text-gray-300">
+    <div className="min-h-screen bg-[#0A0A0A] text-gray-300">
       <div className="max-w-[740px] mx-auto px-6 pt-10 pb-4">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs font-mono text-gray-600 hover:text-gray-400 transition-colors tracking-widest"
         >
-          <ArrowLeft className="w-3 h-3" /> LAST-PROMPT.COM
+          <ArrowLeft className="w-3 h-3" /> THE MANDATE
         </Link>
       </div>
 
@@ -19,219 +20,182 @@ export default function HiddenGapPage() {
 
         {/* Header */}
         <header className="py-12 border-b border-gray-800">
-          <p className="text-xs font-mono text-cyan-400 tracking-widest mb-4 uppercase">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-xs font-mono text-cyan-400 tracking-widest mb-6 uppercase"
+          >
             The Hidden Gap
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-8">
-            High-achievers from the best schools still feel completely at sea.
-          </h1>
-
-          <div className="space-y-5 text-gray-300 leading-relaxed">
-            <p>
-              The ones who aced every test and survived the most intense preparation.
-              They&apos;ve mastered theory. They&apos;ve crushed structured problems.
-              But when variables shift, information is incomplete, priorities collide, and
-              consequences ripple in ways no textbook warned them about — they freeze,
-              over-delegate, or bounce decisions.
-            </p>
-            <p>
-              Education systems have demonstrably failed to prepare people for this.
-            </p>
-            <p className="text-white font-medium">
-              Last Prompt was built to close that gap.
-            </p>
-            <p>
-              It is a decision intelligence engine built around one idea:{" "}
-              <span className="text-white font-semibold">Chronosymbiosis</span>.
-            </p>
-            <p>
-              Chronosymbiosis means your decisions don&apos;t vanish after one moment — they
-              resonate forward across time. Today&apos;s trade-offs quietly strengthen or weaken
-              tomorrow&apos;s options. Good reasoning compounds into resilience. Flawed reasoning
-              compounds into fragility.
-            </p>
-            <p>
-              In practice: you are placed inside high-stakes situations with incomplete information
-              and input from advisors who each see only part of the picture. You write your plan in
-              your own words. A neutral evaluator scores the quality of your thinking. The world
-              then evolves based on your decisions, cycle after cycle.
-            </p>
-            <p>
-              You get to see — clearly and honestly — where your reasoning broke down. Then you go
-              again, with one more rep behind you.
-            </p>
-            <p className="text-white italic">
-              It is not a game. It is not a training course. It is repetition, at speed,
-              in conditions complex enough to matter.
-            </p>
-            <p>
-              The gap between credential and real judgment is real, structural, and not going
-              away on its own. But it is closeable — not through more school, and not through
-              waiting for experience to accumulate at its natural pace.
-            </p>
-          </div>
-
-          <div className="mt-10 pt-8 border-t border-gray-800">
-            <p className="text-gray-500 text-sm leading-relaxed">
-              If that resonates — here&apos;s why the gap exists in the first place.
-            </p>
-          </div>
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-satoshi text-xl sm:text-2xl font-normal text-white leading-relaxed mb-10"
+          >
+            There is a gap between what you think you decided and what you actually did.
+            There is another gap between what your credentials say you can do and what
+            you have ever truly been tested to do.
+          </motion.h1>
         </header>
 
         {/* Body */}
-        <article className="py-12 space-y-12">
+        <article className="py-12 space-y-16">
 
-          {/* Section 1 */}
-          <section className="space-y-5">
+          {/* Section 1 — The Translation Gap */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
             <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              What education was built for
+              The first gap
             </p>
             <p className="leading-relaxed text-gray-400">
-              The modern curriculum was designed during industrialisation to produce a specific kind
-              of person: reliable, trainable, measurable. Schools optimised for the assessment of
-              known quantities — recall, precision, performance under structured pressure. This was
-              not a failure. For most of the twentieth century it was exactly right. Factories needed
-              engineers who could follow specification. Corporations needed analysts who could process
-              defined inputs into defined outputs. The credential became the shorthand for having
-              survived that training.
+              The plan that seemed complete when you wrote it. The decision that felt made
+              but left the people around you working from a different picture. The briefing
+              that was clear in your mind and produced three different interpretations in
+              the room.
             </p>
             <p className="leading-relaxed text-gray-400">
-              The problem is that a credential measures compliance with a system, not capacity for
-              judgment. It measures how well someone performed in environments where the variables
-              were given, the rubric was known, and the correct answer existed. It tells you almost
-              nothing about how someone thinks when the variables are shifting, the information is
-              incomplete, and five different advisors around the table each see a different piece of
-              the problem.
+              This gap is almost impossible to see from the inside. You know what you
+              meant — so the plan reads clearly to you. Every piece of context you did not
+              write down, you fill in automatically. The gap only becomes visible in what
+              happens when other people try to act on what you actually put on the page.
             </p>
-          </section>
+            <p className="leading-relaxed text-gray-400">
+              It is not a gap in intelligence. It is the distance between the clarity of
+              intent and the precision of its expression. And it compounds. A slightly vague
+              plan gets executed slightly wrong. Slightly wrong execution creates slightly
+              worse conditions. The next decision is harder, and made with less room than
+              the last one.
+            </p>
+            <p className="leading-relaxed text-gray-300 font-medium">
+              The simplest test: could someone who just walked in read what you wrote and
+              know exactly what to do first — without asking you what you meant?
+            </p>
+          </motion.section>
 
-          {/* Section 2 */}
-          <section className="space-y-5">
+          {/* Section 2 — The Credential Gap */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
             <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              How credentialism spread
+              The second gap
             </p>
             <p className="leading-relaxed text-gray-400">
-              Credentialism has since colonised every industry — not because it works for identifying
-              judgment, but because it provides a defensible shorthand for risk diffusion.
-              &ldquo;We hired from the right school&rdquo; is something you can say in a post-mortem.
-              &ldquo;We hired someone who reasons well under uncertainty&rdquo; is harder to prove
-              and harder to defend if it goes wrong.
+              The second gap is the one people rarely admit to. The qualifications are
+              there. The theoretical understanding is evident. The years in the room are
+              real. But the specific reps — making a real call under real pressure, being
+              wrong in a way that taught you something, surviving it, and going again —
+              those are rarer than the credential implies.
             </p>
             <p className="leading-relaxed text-gray-400">
-              The result is a hiring and promotion infrastructure that systematically selects for the
-              skills education rewards — knowledge recall, structured analysis, performance in defined
-              environments — and has no reliable mechanism for identifying the one skill it does not
-              teach and cannot measure.
+              A credential signals that you survived a particular kind of training. It tells
+              you almost nothing about what happens when the training runs out and there is
+              no rubric, no right answer, and no one to defer to.
             </p>
 
-            {/* Pull quote */}
-            <blockquote className="pl-5 border-l-2 border-cyan-500/40 my-8">
+            <blockquote className="pl-5 border-l-2 border-[#C9A66B]/40 my-8">
               <p className="text-white text-lg leading-relaxed font-light italic">
                 The credential signals that someone survived a particular kind of training.
                 It says nothing about what they do when the training runs out.
               </p>
             </blockquote>
-          </section>
 
-          {/* Section 3 */}
-          <section className="space-y-5">
-            <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              How large organisations compound it
+            <p className="leading-relaxed text-gray-400">
+              Most organisations compound this. Consequential decisions — the ones where
+              information is genuinely incomplete, priorities genuinely conflict, and the
+              outcome is genuinely uncertain — get bounced. Upward. Into committees. Into
+              more data. Into meetings about meetings. Not out of incompetence. Because the
+              structure tolerates it. Because the consequences of a wrong call fall harder
+              on the individual than the consequences of a delayed one.
             </p>
             <p className="leading-relaxed text-gray-400">
-              Large organisations make this worse. They are built, understandably, around
-              accountability structures that diffuse risk. In practice, this means that consequential
-              decisions — the ones where incomplete information, competing priorities, and genuine
-              uncertainty are all present simultaneously — get bounced. Upward, sideways, into
-              committees, into consultants, into waiting for more data.
+              The people who most need the reps end up in precisely the environments that
+              protect them from getting them.
             </p>
-            <p className="leading-relaxed text-gray-400">
-              Not out of incompetence. Because the structure tolerates it. Because the consequences
-              of a wrong call fall harder on the individual than the consequences of a delayed one.
-              In repeated systemic cycles, the organisation learns that bouncing a decision is safer
-              than making one — and that lesson propagates through every layer.
-            </p>
-            <p className="leading-relaxed text-gray-400">
-              The people who most need to develop judgment — mid-level professionals with real
-              responsibility but limited mandate — end up in precisely the environments that protect
-              them from the consequential reps that would build it.
-            </p>
-          </section>
+          </motion.section>
 
-          {/* Section 4 */}
-          <section className="space-y-5">
+          {/* Section 3 — The Feedback Problem */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
             <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              Why judgment requires repetition
+              Why both gaps stay hidden
             </p>
             <p className="leading-relaxed text-gray-400">
-              Judgment under uncertainty is not an insight. It is a physical skill — like reading a
-              room, or landing a plane. It develops through volume. You need to have been wrong
-              enough times, in enough different configurations, to build the pattern recognition that
-              lets you navigate the next situation more clearly.
+              The translation gap is invisible to the person who has it. The credential gap
+              is visible — but rarely admitted, because the credential is supposed to mean
+              you are ready. Admitting otherwise feels like undermining everything that got
+              you here.
             </p>
             <p className="leading-relaxed text-gray-400">
-              Surgeons train in simulation before operating. Pilots log hundreds of hours in
-              conditions that would kill them in a real cockpit. Military commanders run wargames
-              precisely because the cost of the first real decision being the first real rep is too
-              high.
+              The higher the credential and the more senior the role, the less honest
+              feedback tends to arrive. The people around you defer. The post-mortem finds
+              systemic causes. The cycle closes without the information that would break it.
             </p>
-            <p className="leading-relaxed text-gray-400">
-              For professional judgment in ambiguous, high-stakes environments, we have never built
-              the equivalent. The reps that develop it happen slowly, expensively, and inconsistently
-              — through real decisions with real consequences across real careers. The typical
-              professional encounters a handful of genuinely consequential judgment calls per year.
-              It takes decades to accumulate what a well-designed environment could provide in weeks.
+            <p className="leading-relaxed text-gray-300">
+              Most people have said some version of{" "}
+              <span className="italic">"I actually knew what it was"</span> — after the
+              fact, when it no longer mattered. The diagnosis was there. It never had
+              anywhere to go.
             </p>
-          </section>
+          </motion.section>
 
-          {/* Section 5 */}
-          <section className="space-y-5">
+          {/* Section 4 — What closes it */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
             <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              Why this is worse now
+              What closes both
             </p>
             <p className="leading-relaxed text-gray-400">
-              This has always been true. It is more acute now for two reasons.
+              Neither gap closes through more credentials. More school adds more theory to
+              a deficit that is not theoretical.
             </p>
             <p className="leading-relaxed text-gray-400">
-              First, the pace of change has outrun the cadence of traditional experience. By the time
-              enough reps accumulate for a mental model to solidify, the environment has changed
-              shape. The model that served well in the last role doesn&apos;t map cleanly to the
-              next one.
+              What closes both is the same thing: volume, honest feedback, and conditions
+              complex enough to matter. Writing a plan under real pressure. Being scored on
+              the quality of the reasoning — not the outcome, not the credential, not the
+              intention. Being wrong in a way that is specific, clear, and immediately
+              actionable. Going again.
             </p>
             <p className="leading-relaxed text-gray-400">
-              Second, AI has absorbed the structured, low-ambiguity work that used to provide
-              developmental reps at the junior level. The tasks that once gave early-career
-              professionals practice at bounded decisions have been automated. What remains —
-              oversight, synthesis across competing perspectives, judgment under genuine uncertainty
-              — is precisely the work that requires the skill no one has systematically built.
+              The reps need to be real enough to feel consequential. The feedback needs to
+              be honest enough to actually reveal the gap. And both need to arrive fast
+              enough to be useful — not accumulated slowly across a career at one or two
+              consequential decisions a year.
             </p>
-          </section>
-
-          {/* Section 6 */}
-          <section className="space-y-5">
-            <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-              The only way through
+            <p className="leading-relaxed text-white font-medium">
+              That is what The Mandate was built to provide.
             </p>
-            <p className="leading-relaxed text-gray-400">
-              The gap is structural and it compounds. More credentials do not close it. Waiting for
-              experience to accumulate at its natural pace — one consequential decision per quarter,
-              if you are lucky — does not close it fast enough. The environment changes shape faster
-              than the reps arrive.
-            </p>
-            <p className="leading-relaxed text-gray-400">
-              What closes it is volume, feedback, and consequence — compressed into a format where
-              the cost of being wrong is information rather than damage. That is what Last Prompt
-              was built to provide.
-            </p>
-          </section>
+          </motion.section>
 
           {/* OPH bridge */}
-          <section className="space-y-3">
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="space-y-3"
+          >
             <p className="leading-relaxed text-gray-600 text-sm italic">
-              The compounding-consequence structure at the heart of Last Prompt has a striking
-              parallel in theoretical physics. If you&apos;re curious about why partial perspectives
-              and synthesis under uncertainty turn out to be foundational — not just to good
-              decisions, but to how reality itself appears to work — that thread continues{" "}
+              The compounding-consequence structure at the heart of The Mandate has a
+              striking parallel in theoretical physics. If you are curious about why partial
+              perspectives and synthesis under uncertainty turn out to be foundational —
+              not just to good decisions, but to how reality itself appears to work —
+              that thread continues{" "}
               <Link
                 href="/observer-patch-holography"
                 className="text-cyan-600 hover:text-cyan-400 transition-colors underline underline-offset-2"
@@ -239,25 +203,29 @@ export default function HiddenGapPage() {
                 here
               </Link>.
             </p>
-          </section>
+          </motion.section>
 
           {/* CTA */}
-          <section className="pt-8 border-t border-gray-800">
-            <p className="text-xs font-mono text-cyan-400 tracking-widest mb-4 uppercase">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="pt-8 border-t border-gray-800"
+          >
+            <p className="text-xs font-mono text-[#C9A66B] tracking-widest mb-4 uppercase">
               Beta Access
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
-              All three skins are currently in testing. If this argument resonates and you want
-              honest, unsparing feedback on the quality of your own reasoning — not validation,
-              not a score to share — apply below.
+              All three skins are currently in testing. If this resonates and you want
+              honest feedback on the quality of your own reasoning — apply below.
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg transition-colors text-sm tracking-wide"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-colors text-sm tracking-wide font-satoshi"
             >
               Apply for beta access <ArrowRight className="w-4 h-4" />
             </Link>
-          </section>
+          </motion.section>
 
         </article>
       </main>

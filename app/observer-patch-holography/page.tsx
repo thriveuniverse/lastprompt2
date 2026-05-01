@@ -33,7 +33,7 @@ const TABLE_ROWS = [
   {
     concept: "Consistency Enforcement Across Patches",
     implementation:
-      "The neutral AI evaluator scores your free-text plan against five rubric criteria. Failure to integrate the patches — or internal inconsistency in your reasoning — produces a lower score and worse simulation deltas.",
+      "The neutral AI evaluator scores your free-text plan against six rubric criteria. Failure to integrate the patches — or internal inconsistency in your reasoning — produces a lower score and worse simulation deltas.",
     strength: "Core mechanic",
     strengthColor: "text-cyan-400",
   },
@@ -111,7 +111,7 @@ const SCHEMA_ARTICLE = {
 
 export default function OPHPage() {
   return (
-    <div className="min-h-screen bg-[#050810] text-gray-300">
+    <div className="min-h-screen bg-[#0A0A0A] text-gray-300">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_ARTICLE) }}
@@ -122,7 +122,7 @@ export default function OPHPage() {
           href="/"
           className="inline-flex items-center gap-2 text-xs font-mono text-gray-600 hover:text-gray-400 transition-colors tracking-widest"
         >
-          <ArrowLeft className="w-3 h-3" /> LAST-PROMPT.COM
+          <ArrowLeft className="w-3 h-3" /> THE MANDATE
         </Link>
       </div>
 
@@ -133,10 +133,10 @@ export default function OPHPage() {
           <p className="text-xs font-mono text-cyan-400 tracking-widest mb-4 uppercase">
             Theoretical Foundations
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+          <h1 className="font-satoshi text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
             Observer Patch Holography<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">
-              and Last Prompt
+            <span className="text-[#C9A66B]">
+              and the Last Prompt Engine
             </span>
           </h1>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
@@ -148,7 +148,7 @@ export default function OPHPage() {
 
         {/* Section 1 — The framework */}
         <section className="py-12 border-b border-gray-800 space-y-5">
-          <h2 className="text-2xl font-bold text-white">The core claim</h2>
+          <h2 className="font-satoshi text-2xl font-bold text-white">The core claim</h2>
           <p className="leading-relaxed">
             No pre-existing, God&apos;s-eye universe. No single script. Just overlapping perspectives
             synchronising into the stable story we call physics, spacetime, quantum mechanics, and the
@@ -180,7 +180,7 @@ export default function OPHPage() {
 
         {/* Section 2 — The connection */}
         <section className="py-12 border-b border-gray-800 space-y-5">
-          <h2 className="text-2xl font-bold text-white">Why this lands for us</h2>
+          <h2 className="font-satoshi text-2xl font-bold text-white">Why this lands for us</h2>
           <p className="leading-relaxed">
             OPH describes with unusual precision the problem Last Prompt was built to address — not in
             physics, but in decision-making under genuine uncertainty.
@@ -196,7 +196,7 @@ export default function OPHPage() {
           <p className="leading-relaxed">
             Your task is to write a plan that synthesises those patches into a coherent action. A neutral
             AI evaluator then scores how well you did it — measuring the internal consistency of your
-            reasoning across five criteria that map directly to OPH&apos;s consistency enforcement logic.
+            reasoning across six criteria that map directly to OPH&apos;s consistency enforcement logic.
           </p>
           <p className="leading-relaxed">
             The simulation resolves accordingly. Not because it is pre-scripted, but because the quality
@@ -206,7 +206,7 @@ export default function OPHPage() {
 
         {/* Section 3 — The journal / holographic screen */}
         <section className="py-12 border-b border-gray-800 space-y-5">
-          <h2 className="text-2xl font-bold text-white">The journal as holographic screen</h2>
+          <h2 className="font-satoshi text-2xl font-bold text-white">The journal as holographic screen</h2>
           <p className="leading-relaxed">
             The most structurally precise parallel is the journal system — and it is worth dwelling on
             because it inverts the usual way people think about records.
@@ -234,16 +234,17 @@ export default function OPHPage() {
 
         {/* Section 4 — Why Lockwood */}
         <section className="py-12 border-b border-gray-800 space-y-5">
-          <h2 className="text-2xl font-bold text-white">Lockwood as the reference implementation</h2>
+          <h2 className="font-satoshi text-2xl font-bold text-white">Lockwood as the reference implementation</h2>
           <p className="leading-relaxed">
             The Last Prompt engine runs across multiple skins — Colony, Corporate Reckoning, Lockwood —
             and the OPH mapping applies to all of them at the mechanical level. But Lockwood is the skin
             where the philosophical architecture is most explicit in the lore itself.
           </p>
           <p className="leading-relaxed">
-            Lockwood places you at six crux points in the history of computing and machine intelligence.
-            You are the Traveller — a silent operative with no god&apos;s-eye view of history, reasoning
-            at the moments that shaped the next century. The advisor archetypes (Spark, Wanderer,
+            Lockwood places you at crux points in the history of computing and machine intelligence.
+            Each chapter opens at a real historical moment — the seed from which your personal timeline
+            grows. You are the Traveller — a silent operative with no god&apos;s-eye view, arriving
+            at the points where one different thought might have pulled things in another direction. The advisor archetypes (Spark, Wanderer,
             Sovereign, Weaver, Questioner, Survivor) are each built around a different cognitive and
             epistemic orientation, not just a domain. Each represents a fundamentally different way of
             constructing a patch.
@@ -337,7 +338,7 @@ export default function OPHPage() {
 
         {/* Section 7 — The practical conclusion */}
         <section className="py-12 border-b border-gray-800 space-y-5">
-          <h2 className="text-2xl font-bold text-white">From fundamental physics to practical judgment</h2>
+          <h2 className="font-satoshi text-2xl font-bold text-white">From fundamental physics to practical judgment</h2>
           <p className="leading-relaxed">
             What draws us to OPH is the intuition at its core: if reality itself is built from partial
             knowledge and enforced agreement, then the most valuable skill in our time isn&apos;t memorising
@@ -400,7 +401,7 @@ export default function OPHPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg transition-colors text-sm tracking-wide"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-colors text-sm tracking-wide"
             >
               Register interest
             </Link>

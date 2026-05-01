@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Atom } from "lucide-react";
+import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Atom, Layers } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
@@ -18,12 +18,51 @@ const NAV_ITEMS = [
         href: "/engine",
         desc: "Architecture, rubric, and evaluation logic",
         icon: Cpu,
+        iconColor: "text-cyan-400",
       },
       {
         label: "Theoretical Foundations",
         href: "/observer-patch-holography",
         desc: "Observer Patch Holography and the science behind the engine",
         icon: Atom,
+        iconColor: "text-cyan-400",
+      },
+    ],
+  },
+  {
+    label: "Skins",
+    href: "/skins",
+    icon: Layers,
+    color: "hover:text-[#C9A66B] hover:bg-[#C9A66B]/10",
+    activeColor: "text-[#C9A66B]",
+    dropdown: [
+      {
+        label: "All Skins",
+        href: "/skins",
+        desc: "Engine modularity — any scenario can become a skin",
+        icon: Layers,
+        iconColor: "text-[#C9A66B]",
+      },
+      {
+        label: "Colony",
+        href: "/colony",
+        desc: "Post-collapse survival — lead 100 survivors",
+        icon: Gamepad2,
+        iconColor: "text-[#D0633A]",
+      },
+      {
+        label: "Corporate Reckoning",
+        href: "/corporate-crisis",
+        desc: "Executive crisis simulation",
+        icon: Building2,
+        iconColor: "text-[#3498DB]",
+      },
+      {
+        label: "Lockwood",
+        href: "/lockwood",
+        desc: "Historical decision simulation — your timeline, your thread",
+        icon: Gamepad2,
+        iconColor: "text-[#BAA5E8]",
       },
     ],
   },
@@ -33,30 +72,6 @@ const NAV_ITEMS = [
     icon: BookOpen,
     color: "hover:text-purple-400 hover:bg-purple-400/10",
     activeColor: "text-purple-400",
-    dropdown: null,
-  },
-  {
-    label: "Colony",
-    href: "/colony",
-    icon: Gamepad2,
-    color: "hover:text-green-400 hover:bg-green-400/10",
-    activeColor: "text-green-400",
-    dropdown: null,
-  },
-  {
-    label: "Corporate",
-    href: "/corporate-crisis",
-    icon: Building2,
-    color: "hover:text-orange-400 hover:bg-orange-400/10",
-    activeColor: "text-orange-400",
-    dropdown: null,
-  },
-  {
-    label: "Lockwood",
-    href: "/lockwood",
-    icon: Gamepad2,
-    color: "hover:text-[#baa5e8] hover:bg-[#baa5e8]/10",
-    activeColor: "text-[#baa5e8]",
     dropdown: null,
   },
 ];
@@ -95,11 +110,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="flex flex-col leading-none">
-              <span className="text-lg font-black text-white tracking-tight group-hover:text-cyan-400 transition-colors">
-                LAST <span className="text-cyan-400">PROMPT</span>
+              <span className="font-satoshi text-lg font-bold text-[#C9A66B] tracking-tight group-hover:text-[#D4AF77] transition-colors">
+                THE MANDATE
               </span>
-              <span className="text-[9px] font-mono text-gray-600 tracking-[0.2em] uppercase">
-                Decision Intelligence Engine
+              <span className="text-[9px] font-mono text-cyan-400/50 tracking-[0.15em] uppercase">
+                Powered by Last Prompt
               </span>
             </div>
           </Link>
@@ -141,7 +156,7 @@ export function Header() {
                             className="flex items-start gap-3 px-4 py-3 hover:bg-gray-900 transition-colors group/sub border-b border-gray-900 last:border-0"
                           >
                             <div className="shrink-0 w-7 h-7 rounded-md bg-gray-800 flex items-center justify-center mt-0.5">
-                              <sub.icon className="w-3.5 h-3.5 text-cyan-400" />
+                              <sub.icon className={`w-3.5 h-3.5 ${sub.iconColor ?? "text-cyan-400"}`} />
                             </div>
                             <div>
                               <div className="text-sm font-medium text-white group-hover/sub:text-cyan-400 transition-colors">
