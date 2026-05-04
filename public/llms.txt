@@ -70,6 +70,10 @@ The engine has structural parallels with Observer Patch Holography (OPH), develo
 - https://last-prompt.com/corporate-crisis — Corporate Reckoning skin
 - https://last-prompt.com/lockwood — Lockwood skin
 
+## Research
+
+"Last Prompt: Operationalising Partial Perspectives in Decision Intelligence Training" — Miranda Kelly and Jonathan Kelly. Working paper, May 2026. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6706518
+
 ## Contact
 
 Licensing and collaboration: artikelly@hotmail.co.uk

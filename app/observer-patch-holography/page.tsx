@@ -389,6 +389,20 @@ export default function OPHPage() {
                   The formal repository for the OPH project under FloatingPragma.
                 </p>
               </li>
+              <li>
+                <a
+                  href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6706518"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#C9A66B] hover:text-[#D4AF77] transition-colors"
+                >
+                  Last Prompt — working paper (SSRN){" "}
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <p className="text-gray-600 text-sm mt-0.5">
+                  Section 6 of the paper treats OPH as a discovered structural adjacency. Bernhard Mueller confirmed the correspondence is precise rather than approximate.
+                </p>
+              </li>
             </ul>
           </div>
 

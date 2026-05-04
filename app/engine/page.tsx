@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Layers, ArrowRight, Atom } from "lucide-react";
+import { Cpu, Layers, ArrowRight, Atom, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { LeadForm } from "@/components/lead-form";
 
@@ -656,6 +656,34 @@ export default function EnginePage() {
               <LeadForm interest="both" accentColor="cyan" />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── RESEARCH PAPER ── */}
+      <section className="py-16 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          >
+            <div className="max-w-xl">
+              <span className="text-xs font-mono text-gray-600 tracking-widest uppercase">Academic</span>
+              <h3 className="font-satoshi text-white font-bold text-xl mt-2 mb-1">Formal architecture paper</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                &ldquo;Last Prompt: Operationalising Partial Perspectives in Decision Intelligence Training&rdquo; — Miranda Kelly and Jonathan Kelly. Working paper, May 2026.
+              </p>
+            </div>
+            <a
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6706518"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white rounded-lg transition-all text-sm font-medium shrink-0"
+            >
+              Read on SSRN <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </motion.div>
         </div>
       </section>
 
