@@ -11,7 +11,7 @@ const SKINS = [
     label: "SKIN 01",
     title: "Colony",
     subtitle: "Post-Collapse Survival",
-    description: "Lead 100 survivors through the collapse of civilisation. Every week brings a new crisis. Your reasoning determines whether they thrive — or fall.",
+    description: "Lead 100 survivors through the collapse of civilisation. Each cycle, Jon Kelly faces a new crisis. You write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only you see why they fell as they did.",
     accent: "text-[#D0633A]",
     border: "border-[#D0633A]/30",
     hover: "hover:border-[#D0633A]/50 hover:shadow-[#D0633A]/5",
@@ -154,8 +154,11 @@ export default function HomePage() {
               The Mandate is not a simulation. Not a course.{" "}
               <span className="text-white">Not a test you can prepare for.</span>
             </p>
-            <p className="text-lg text-gray-500 leading-relaxed mb-10">
+            <p className="text-lg text-gray-500 leading-relaxed mb-5">
               It is a private evaluation of how you reason when it matters.
+            </p>
+            <p className="text-lg text-gray-500 leading-relaxed mb-10">
+              The character lives the consequences. You see the analysis of why.
             </p>
             <Link
               href="/engine"

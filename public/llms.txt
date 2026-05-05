@@ -20,7 +20,7 @@ The Mandate is what people buy — an unsparing verdict on the quality of their 
 
 ## How it works
 
-Users are placed inside high-stakes scenarios with incomplete information and partial-perspective advisors. They write a plan in plain English. A neutral AI evaluates the quality of their reasoning — not their choices — across five criteria. Consequences follow from reasoning quality, not from which option was selected. No two users have the same path because no two inputs are the same.
+Users are placed inside high-stakes scenarios with incomplete information and partial-perspective advisors. They write a plan in plain English. A neutral AI evaluates the quality of their reasoning — not their choices — across six criteria. Consequences follow from reasoning quality, not from which option was selected. No two users have the same path because no two inputs are the same.
 
 Evaluation rubric (0–2 per criterion, 0–12 total):
 - Variable Awareness: acknowledging key constraints and trade-offs
@@ -31,6 +31,16 @@ Evaluation rubric (0–2 per criterion, 0–12 total):
 - Temporal Symbiosis: whether the plan considers how this decision connects to earlier choices or shapes conditions for future ones
 
 Quality bands: Poor (0–4), Adequate (5–8), Strong (9–12)
+
+## The evaluation asymmetry
+
+This is the product's core differentiator from narrative simulation.
+
+The character navigating the scenario — Jon Kelly in Colony, Jon Roddy in Corporate Reckoning, The Traveller in Lockwood — does not see the Mandate's evaluation. They experience only the consequences of the decisions made on their behalf. The user sees both: the consequences AND the analytical breakdown of why their reasoning produced that outcome.
+
+Users write the character's decisions — they inhabit the character's reasoning in the moment. But they have access to an analytical layer the character never sees: rubric scores, reasoning observations, stat deltas, and alternate timeline projections. The character receives single-loop feedback (consequences only). The user receives double-loop feedback (consequences plus the reasoning quality that caused them). This is what makes it a training instrument rather than entertainment.
+
+Users engage one decision at a time and can return between sessions. There is no schedule, no weekly commitment, no real-time pressure. The pressure is cognitive, not temporal.
 
 ## Key concepts
 
@@ -47,7 +57,7 @@ Quality bands: Poor (0–4), Adequate (5–8), Strong (9–12)
 ## Skins
 
 ### Colony — Post-Collapse Survival
-Lead 100 survivors through the collapse of civilisation. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
+Jon Kelly leads 100 survivors through the collapse of civilisation. Each cycle he faces a new crisis. Users write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only the user sees why they fell as they did. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
 
 ### Corporate Reckoning — Executive Crisis Simulation
 Navigate a corporate crisis as a senior leader with competing advisors and a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
