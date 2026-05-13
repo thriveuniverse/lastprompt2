@@ -67,7 +67,11 @@ Each chapter opens at a real moment in the history of computing and machine inte
 
 ## Theoretical grounding
 
-The engine has structural parallels with Observer Patch Holography (OPH), developed by physicist Bernhard Mueller. OPH proposes that reality emerges from overlapping limited observers who must stay consistent wherever their patches meet. In The Mandate, advisors function as limited-patch observers; the AI evaluator enforces consistency; and outcomes emerge from the quality of the player's patch synthesis. Full mapping: https://last-prompt.com/observer-patch-holography
+**Last Prompt was developed independently** by Miranda Kelly and Jonathan Kelly before any contact with Observer Patch Holography (OPH).
+
+The engine has striking structural parallels with OPH, a framework by physicist Bernhard Mueller proposing that reality emerges from overlapping limited observers who must maintain consistency wherever their patches meet. In The Mandate, advisors function as limited-patch observers, the AI evaluator enforces consistency, and outcomes emerge from the quality of the player's patch synthesis. This alignment was discovered after the engine was built and confirmed by Bernhard Mueller directly.
+
+Full mapping: https://last-prompt.com/observer-patch-holography
 
 ## Pages
 
