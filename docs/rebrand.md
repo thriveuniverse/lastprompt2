@@ -68,7 +68,7 @@ The luxury/premium positioning is not purely aesthetic — it is a filtering mec
 
 | Element | Copy |
 |---|---|
-| **Headline** | Many leaders have never truly been tested. |
+| **Headline** | You make decisions every day. Here you see what you actually set in motion. |
 | **Bridge line** | A private platform for training judgment under real pressure. |
 | **Brand attribution** | The Mandate — Powered by Last Prompt *(visually distinct — label weight, not sentence weight)* |
 | **Body line 1** | You write the plan in plain English. |

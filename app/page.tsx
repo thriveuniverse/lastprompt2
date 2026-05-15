@@ -78,7 +78,7 @@ export default function HomePage() {
             </motion.div>
 
             <h1 className="font-satoshi text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-              Many leaders have never truly been tested.
+              You make decisions every day. Here you see what you actually set in motion.
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 max-w-lg mx-auto mb-14 leading-relaxed font-light">
