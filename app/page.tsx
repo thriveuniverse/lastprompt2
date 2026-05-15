@@ -77,7 +77,7 @@ export default function HomePage() {
               THE MANDATE — POWERED BY LAST PROMPT
             </motion.div>
 
-            <h1 className="font-satoshi text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 className="font-satoshi text-4xl sm:text-5xl 2xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               You make decisions every day. Here you see what you actually set in motion.
             </h1>
 
