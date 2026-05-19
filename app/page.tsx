@@ -225,6 +225,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── FEEDBACK ── */}
+      <section className="py-24 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[640px] mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Favourite feedback so far</span>
+            <blockquote className="mt-8 mb-7">
+              <p className="font-satoshi text-2xl sm:text-3xl text-white font-light leading-snug">
+                &ldquo;Everyone is building AI that thinks for you. You&rsquo;re building something that makes the human think better.&rdquo;
+              </p>
+            </blockquote>
+            <a
+              href="https://x.com/Faysalfateh1/status/2056245834510168121"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gray-300 transition-colors text-sm"
+            >
+              — Faysal Fateh · <span className="text-[#C9A66B]">@Faysalfateh1</span>
+            </a>
+            <div className="mt-10">
+              <a
+                href="https://x.com/mirrie_kelly"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
+              >
+                Follow the conversation on X <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section id="contact" className="py-28 bg-gray-950 border-t border-gray-900">
         <div className="max-w-[680px] mx-auto px-6">
