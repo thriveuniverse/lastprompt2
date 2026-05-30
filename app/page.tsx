@@ -103,6 +103,43 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── THE DEEPER GAME ── */}
+      <section className="py-24 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[640px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">The Deeper Game</span>
+
+            <p className="font-satoshi text-xl sm:text-2xl text-gray-400 mt-8 mb-4 leading-relaxed">
+              Most decision tools train you to pick from options.{" "}
+              <span className="text-white font-medium">The Mandate trains you to close the gap between what you think you decided and what actually happens.</span>
+            </p>
+
+            <p className="text-lg text-gray-500 mt-8 mb-3 leading-relaxed">
+              There is a hidden gap in how humans reason and communicate under pressure.
+            </p>
+            <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+              It is almost impossible to see from the inside — yet it quietly shapes entire environments, companies, and outcomes.
+            </p>
+
+            <Link
+              href="/the-hidden-gap"
+              className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              Read: The Hidden Gap <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <p className="font-satoshi text-lg text-gray-400 leading-relaxed mt-12">
+              This is why we built The Mandate — not as another simulation, but as a serious tool for closing the gap between perceived and actual decision quality.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── THE EXPERIENCE ── */}
       <section className="py-32 bg-[#0A0A0A] border-t border-gray-900">
         <div className="max-w-[680px] mx-auto px-6">
