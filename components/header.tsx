@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Atom, Layers } from "lucide-react";
+import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Layers } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
@@ -12,22 +12,7 @@ const NAV_ITEMS = [
     icon: Cpu,
     color: "hover:text-cyan-400 hover:bg-cyan-400/10",
     activeColor: "text-cyan-400",
-    dropdown: [
-      {
-        label: "How it Works",
-        href: "/engine",
-        desc: "Architecture, rubric, and evaluation logic",
-        icon: Cpu,
-        iconColor: "text-cyan-400",
-      },
-      {
-        label: "Theoretical Foundations",
-        href: "/observer-patch-holography",
-        desc: "Observer Patch Holography and the science behind the engine",
-        icon: Atom,
-        iconColor: "text-cyan-400",
-      },
-    ],
+    dropdown: null,
   },
   {
     label: "Skins",

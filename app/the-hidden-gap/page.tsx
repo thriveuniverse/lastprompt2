@@ -183,29 +183,7 @@ export default function HiddenGapPage() {
             </p>
           </motion.section>
 
-          {/* OPH bridge */}
-          <motion.section
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="space-y-3"
-          >
-            <p className="leading-relaxed text-gray-600 text-sm italic">
-              The compounding-consequence structure at the heart of The Mandate has a
-              striking parallel in theoretical physics. If you are curious about why partial
-              perspectives and synthesis under uncertainty turn out to be foundational —
-              not just to good decisions, but to how reality itself appears to work —
-              that thread continues{" "}
-              <Link
-                href="/observer-patch-holography"
-                className="text-cyan-600 hover:text-cyan-400 transition-colors underline underline-offset-2"
-              >
-                here
-              </Link>.
-            </p>
-          </motion.section>
-
-          {/* CTA */}
+{/* CTA */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

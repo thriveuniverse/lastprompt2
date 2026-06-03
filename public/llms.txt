@@ -65,21 +65,12 @@ Navigate a corporate crisis as a senior leader with competing advisors and a boa
 ### Lockwood — Historical Decision Simulation
 Each chapter opens at a real moment in the history of computing and machine intelligence. The events that follow are drawn from across human history — anonymised and placed by the circumstances the player's decisions created. The player is The Traveller — a silent operative arriving at the thinnest points in the timeline, where one different thought might have pulled things in another direction. Five stats: Cognitive, Moral, Perceptual, Collective, Temporal. Status: In Testing.
 
-## Theoretical grounding
-
-**Last Prompt was developed independently** by Miranda Kelly and Jonathan Kelly before any contact with Observer Patch Holography (OPH).
-
-The engine has striking structural parallels with OPH, a framework by physicist Bernhard Mueller proposing that reality emerges from overlapping limited observers who must maintain consistency wherever their patches meet. In The Mandate, advisors function as limited-patch observers, the AI evaluator enforces consistency, and outcomes emerge from the quality of the player's patch synthesis. This alignment was discovered after the engine was built and confirmed by Bernhard Mueller directly.
-
-Full mapping: https://last-prompt.com/observer-patch-holography
-
 ## Pages
 
 - https://last-prompt.com — homepage
 - https://last-prompt.com/engine — full engine specification
 - https://last-prompt.com/skins — engine modularity, all skins, and custom skin licensing
 - https://last-prompt.com/the-hidden-gap — the core problem the platform addresses
-- https://last-prompt.com/observer-patch-holography — OPH theoretical grounding
 - https://last-prompt.com/colony — Colony skin
 - https://last-prompt.com/corporate-crisis — Corporate Reckoning skin
 - https://last-prompt.com/lockwood — Lockwood skin

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Layers, ArrowRight, Atom, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { Cpu, Layers, ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { LeadForm } from "@/components/lead-form";
 
@@ -316,7 +317,7 @@ export default function EnginePage() {
         </div>
       </section>
 
-      {/* ── CHRONOSYMBIOSIS + OPH ── */}
+      {/* ── CHRONOSYMBIOSIS ── */}
       <section className="py-20 bg-gray-950 border-b border-gray-900">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -340,26 +341,25 @@ export default function EnginePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="p-6 rounded-2xl border border-gray-800 bg-gray-900/40"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0">
-                  <Atom className="w-4 h-4 text-cyan-400" />
-                </div>
-                <span className="text-xs font-mono text-gray-500 tracking-widest uppercase">Theoretical Foundations</span>
+              <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">What changes over 30 cycles</span>
+              <div className="mt-5 rounded-xl overflow-hidden border border-gray-800">
+                <Image
+                  src="/images/user-development.jpg"
+                  alt="User development over 30 cycles — from separate advisor perspectives to synthesised judgment"
+                  width={600}
+                  height={320}
+                  className="w-full"
+                />
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                The compounding-consequence structure has a structural parallel in theoretical physics. Observer Patch Holography proposes that reality emerges from overlapping limited observers who must stay consistent where their patches meet.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                In The Mandate: advisors are limited-patch observers. The AI evaluator enforces consistency. Outcomes emerge from the quality of the player&apos;s synthesis across partial perspectives. This parallel was confirmed by the physicist who developed the framework.
-              </p>
-              <Link
-                href="/observer-patch-holography"
-                className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors"
-              >
-                Read the theoretical grounding <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="mt-5 space-y-3 text-sm text-gray-500 leading-relaxed">
+                <p>
+                  Each scenario runs across <span className="text-gray-300">5 cycles per chapter, 6 chapters</span> — 30 decisions in total. Early sessions the advisors feel separate, each pulling in a different direction.
+                </p>
+                <p>
+                  As the cycles compound, something shifts. You begin to see the shape beneath the noise — the synthesis that survives when personal bias and urgency are stripped away. That is not something the system teaches. It is what rigorous repetition reveals.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
