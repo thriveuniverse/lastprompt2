@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Layers } from "lucide-react";
+import { Menu, X, Cpu, Gamepad2, Building2, ChevronDown, BookOpen, Layers, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
@@ -50,6 +50,14 @@ const NAV_ITEMS = [
         iconColor: "text-[#BAA5E8]",
       },
     ],
+  },
+  {
+    label: "The Mirror",
+    href: "/the-mirror",
+    icon: Eye,
+    color: "hover:text-[#C9A66B] hover:bg-[#C9A66B]/10",
+    activeColor: "text-[#C9A66B]",
+    dropdown: null,
   },
   {
     label: "The Hidden Gap",
