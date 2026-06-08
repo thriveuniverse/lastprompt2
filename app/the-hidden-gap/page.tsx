@@ -43,7 +43,7 @@ export default function HiddenGapPage() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-gray-400 text-lg leading-relaxed"
           >
-            That is a different thing. The gap between them has widened — not through
+            These are different things. The gap between them has widened — not through
             negligence or failure of character, but through a sequence of entirely rational
             design decisions that have quietly removed the conditions under which consequential
             decision-making capacity develops.
@@ -75,7 +75,7 @@ export default function HiddenGapPage() {
                 I have raised this with the relevant stakeholders.<br />
                 I have passed this to customer service and am awaiting their response.<br />
                 I have flagged this for the next leadership review.<br />
-                I have ensured the appropriate people are informed.
+                I have escalated this to ensure the appropriate people are informed.
               </p>
             </blockquote>
             <p className="leading-relaxed text-gray-200 font-medium">
