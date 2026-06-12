@@ -660,6 +660,165 @@ export default function ProofPage() {
             </div>
           </div>
 
+          {/* ── Cascade section ── */}
+          <div className="space-y-5">
+            <p className="text-xs font-mono text-gray-500 tracking-widest uppercase">
+              The cascade — different stats drive a different next event
+            </p>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
+              Different scores produce different stat outcomes. But the consequence
+              doesn&apos;t stop there. Before every new event is selected, the engine
+              scans the full stat array, identifies the lowest-performing variable, and
+              uses that reading to determine what kind of crisis arrives next.
+            </p>
+
+            {/* Selection rules */}
+            <div className="p-5 rounded-xl border border-gray-800 bg-gray-900/40">
+              <p className="text-xs font-mono text-gray-500 tracking-widest uppercase mb-4">
+                Event selection — how the engine reads your stat state
+              </p>
+              <div className="space-y-3 font-mono text-xs">
+                {[
+                  {
+                    band: "CRISIS",
+                    threshold: "lowest stat ≤ 2",
+                    result: "Major events targeting that stat's domain only",
+                    color: "text-red-400",
+                    bg: "bg-red-950/20 border-red-500/20",
+                  },
+                  {
+                    band: "STRAIN",
+                    threshold: "lowest stat ≤ 4",
+                    result: "Any events targeting that stat's domain",
+                    color: "text-amber-400",
+                    bg: "bg-amber-950/20 border-amber-500/20",
+                  },
+                  {
+                    band: "STABLE",
+                    threshold: "lowest stat ≥ 5",
+                    result: "Routine and Social events — recovery space",
+                    color: "text-cyan-400",
+                    bg: "bg-cyan-950/20 border-cyan-500/20",
+                  },
+                ].map((row) => (
+                  <div
+                    key={row.band}
+                    className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 px-4 py-3 rounded-lg border ${row.bg}`}
+                  >
+                    <span className={`font-bold w-16 shrink-0 ${row.color}`}>
+                      {row.band}
+                    </span>
+                    <span className="text-gray-500 w-32 shrink-0">{row.threshold}</span>
+                    <span className="text-gray-300">{row.result}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Two paths side by side — real data from Proof 3 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+              {/* Strong path */}
+              <div className="p-5 rounded-xl border border-cyan-500/20 bg-cyan-950/10 space-y-4">
+                <p className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+                  Path A — Strong (9/12)
+                </p>
+                <div className="font-mono text-xs space-y-2">
+                  <p className="text-gray-500">Stats after tutorial_stranger:</p>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {[
+                      { stat: "Health", val: 6 }, { stat: "Cohesion", val: 5 },
+                      { stat: "Security", val: 7 }, { stat: "Sustenance", val: 5 },
+                    ].map(({ stat, val }) => (
+                      <div
+                        key={stat}
+                        className="flex justify-between px-2 py-1 bg-gray-800/60 rounded"
+                      >
+                        <span className="text-gray-500">{stat}</span>
+                        <span className="text-white font-bold">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-cyan-500/10 space-y-1.5">
+                  <p className="text-xs text-gray-500 font-mono">Engine scan:</p>
+                  <p className="text-cyan-400 text-xs font-mono font-bold">
+                    STABLE — lowest = 5
+                  </p>
+                  <p className="text-gray-400 text-xs mt-2 leading-relaxed">
+                    Next event: Routine or Social (any domain).
+                    The world responds to your stability with recovery space.
+                  </p>
+                </div>
+              </div>
+
+              {/* Poor path */}
+              <div className="p-5 rounded-xl border border-red-500/20 bg-red-950/10 space-y-4">
+                <p className="text-xs font-mono text-red-400 tracking-widest uppercase">
+                  Path B — Poor (4/12, decapitation contingency)
+                </p>
+                <div className="font-mono text-xs space-y-2">
+                  <p className="text-gray-500">Stats after tutorial_stranger:</p>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {[
+                      { stat: "Health", val: 5, crisis: false },
+                      { stat: "Cohesion", val: 3, crisis: true },
+                      { stat: "Security", val: 5, crisis: false },
+                      { stat: "Sustenance", val: 5, crisis: false },
+                    ].map(({ stat, val, crisis }) => (
+                      <div
+                        key={stat}
+                        className={`flex justify-between px-2 py-1 rounded ${
+                          crisis
+                            ? "bg-red-900/40 border border-red-500/30"
+                            : "bg-gray-800/60"
+                        }`}
+                      >
+                        <span className="text-gray-500">{stat}</span>
+                        <span
+                          className={`font-bold ${crisis ? "text-red-400" : "text-white"}`}
+                        >
+                          {val}
+                          {crisis && <span className="ml-1 text-[10px] text-red-500">←</span>}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-red-500/10 space-y-1.5">
+                  <p className="text-xs text-gray-500 font-mono">Engine scan:</p>
+                  <p className="text-red-400 text-xs font-mono font-bold">
+                    STRAIN — lowest = 3 (cohesion)
+                  </p>
+                  <p className="text-gray-400 text-xs mt-2 leading-relaxed">
+                    Next event: Cohesion-domain crisis — targeting the stat already
+                    at 3. If cohesion falls to 2, the band shifts to CRISIS: only
+                    Major cohesion events from that point on.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Compounding mechanism */}
+            <div className="p-6 rounded-xl border border-gray-700 bg-gray-900/60">
+              <p className="text-gray-300 leading-relaxed text-sm">
+                Poor reasoning doesn&apos;t just produce a lower score. It produces a
+                weakened stat that the engine detects — and responds to by sending
+                a harder event targeting that exact domain. Strong reasoning creates
+                stability that the engine reads as recovery space — and responds to
+                with routine events that allow the player to consolidate.
+              </p>
+              <p className="text-gray-400 leading-relaxed text-sm mt-3">
+                The spiral in both directions is structural. It is built into the
+                event-selection rules, not authored into fixed story branches. Two
+                players facing the same opening event will face entirely different
+                second events — not because the narrative branched, but because
+                their reasoning produced different environments, and the engine
+                responds to the environment it finds.
+              </p>
+            </div>
+          </div>
+
           {/* Interpretation + Verdict */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40 space-y-3">
@@ -672,10 +831,11 @@ export default function ProofPage() {
                 The divergence is not in the event. It is in the reasoning.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                A compassionate response with no operational structure scored 1. A plan
-                that balanced immediate security with long-term intelligence gathering
-                scored 9. Same world. Entirely different reasoning. Entirely different
-                consequences compounding forward.
+                But the divergence compounds. Different scores produce different
+                stat states. Different stat states trigger different event-selection
+                rules. Different events require different decisions. What begins as
+                a difference in reasoning quality at one moment becomes a completely
+                different experience across the full run.
               </p>
               <p className="text-gray-500 text-sm">
                 None of these were curated. All were drawn from the live decision log.
@@ -688,7 +848,9 @@ export default function ProofPage() {
                 </p>
                 <p className="text-white text-sm leading-relaxed">
                   Identical starting conditions. Six different paths. Score range 1–9.
-                  All three quality bands represented. The decision space is not scripted.
+                  Different stat outcomes drive different event selection — so the
+                  path diverges not just in score, but in every crisis that follows.
+                  The decision space is not scripted.
                 </p>
               </div>
               <VerifiedBadge />
