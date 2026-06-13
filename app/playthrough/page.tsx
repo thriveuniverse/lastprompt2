@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -222,23 +223,78 @@ function TimelineWeaveCard({
 }
 
 function ScreenshotThumbnail({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
-    <a
-      href={src}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block rounded-xl border border-gray-800 overflow-hidden bg-gray-900/20 group hover:border-gray-600 transition-colors"
-      title="Click to view full size"
-    >
-      <div className="px-3 py-1.5 border-b border-gray-800 bg-gray-900/40 flex items-center justify-between">
-        <span className="text-[10px] font-mono text-gray-600">{caption}</span>
-        <span className="text-[9px] font-mono text-gray-700 group-hover:text-gray-500 transition-colors">view full ↗</span>
-      </div>
-      <div className="relative aspect-[4/3]">
-        <Image src={src} alt={alt} fill className="object-cover object-top group-hover:opacity-90 transition-opacity" sizes="320px" />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-      </div>
-    </a>
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="block w-full text-left rounded-xl border border-gray-800 overflow-hidden bg-gray-900/20 group hover:border-gray-600 transition-colors"
+      >
+        <div className="px-3 py-1.5 border-b border-gray-800 bg-gray-900/40 flex items-center justify-between">
+          <span className="text-[10px] font-mono text-gray-600">{caption}</span>
+          <span className="text-[9px] font-mono text-gray-700 group-hover:text-gray-500 transition-colors">click to expand</span>
+        </div>
+        <div className="relative aspect-[4/3]">
+          <Image src={src} alt={alt} fill className="object-cover object-top group-hover:opacity-85 transition-opacity" sizes="320px" />
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="bg-black/60 rounded-lg px-3 py-1.5">
+              <span className="text-xs font-mono text-white">expand</span>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4 sm:p-8 cursor-pointer"
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full cursor-default"
+            >
+              <div className="flex items-center justify-between mb-3 px-1">
+                <span className="text-[10px] font-mono text-gray-500">{caption}</span>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-[10px] font-mono text-gray-600 hover:text-white transition-colors"
+                >
+                  close · esc
+                </button>
+              </div>
+              <Image
+                src={src}
+                alt={alt}
+                width={1440}
+                height={1080}
+                className="w-full h-auto rounded-xl border border-gray-800 shadow-2xl shadow-black/60"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
