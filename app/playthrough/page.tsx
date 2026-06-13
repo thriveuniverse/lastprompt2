@@ -223,14 +223,22 @@ function TimelineWeaveCard({
 
 function ScreenshotThumbnail({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (
-    <div className="rounded-xl border border-gray-800 overflow-hidden bg-gray-900/20">
-      <div className="px-3 py-1.5 border-b border-gray-800 bg-gray-900/40">
+    <a
+      href={src}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block rounded-xl border border-gray-800 overflow-hidden bg-gray-900/20 group hover:border-gray-600 transition-colors"
+      title="Click to view full size"
+    >
+      <div className="px-3 py-1.5 border-b border-gray-800 bg-gray-900/40 flex items-center justify-between">
         <span className="text-[10px] font-mono text-gray-600">{caption}</span>
+        <span className="text-[9px] font-mono text-gray-700 group-hover:text-gray-500 transition-colors">view full ↗</span>
       </div>
       <div className="relative aspect-[4/3]">
-        <Image src={src} alt={alt} fill className="object-cover object-top" sizes="320px" />
+        <Image src={src} alt={alt} fill className="object-cover object-top group-hover:opacity-90 transition-opacity" sizes="320px" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
       </div>
-    </div>
+    </a>
   );
 }
 
