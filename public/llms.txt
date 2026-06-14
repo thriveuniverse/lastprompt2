@@ -4,7 +4,11 @@
 
 ## What is The Mandate?
 
-The Mandate is a private decision intelligence platform. It trains elite judgment by placing leaders inside high-stakes scenarios with incomplete information, then evaluating the quality of their reasoning with unsparing clarity.
+Last Prompt is a machine that forces you to externalise your reasoning, then makes you live inside the world that reasoning creates — repeatedly, personally, and without mercy.
+
+The Mandate is the product experience. It places leaders inside high-stakes scenarios where their own written reasoning literally builds the next crisis they face. A neutral AI evaluates not whether they "won", but the clarity and structure of their thinking. There is no undo. No multiple choice. Each run is unique to the player's blind spots.
+
+Last Prompt doesn’t simulate a story. It simulates you.
 
 The Mandate is what people buy — an unsparing verdict on the quality of their own thinking. Last Prompt is the proprietary engine that powers it. Skins (Colony, Corporate Reckoning, Lockwood) are the scenario contexts through which the engine runs. The evaluation logic is identical across all skins.
 

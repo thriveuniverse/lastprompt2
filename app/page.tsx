@@ -82,7 +82,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 max-w-lg mx-auto mb-14 leading-relaxed font-light">
-              A private platform for training judgment under real pressure.
+              Last Prompt forces you to externalise your reasoning, then makes you live inside the world that reasoning creates — repeatedly, personally, and without mercy.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -178,30 +178,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHAT THIS IS ── */}
+      {/* ── LAST PROMPT — WHAT IT ACTUALLY IS ── */}
       <section className="py-24 bg-gray-950 border-y border-gray-900">
-        <div className="max-w-[680px] mx-auto px-6">
+        <div className="max-w-[720px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="prose prose-invert prose-lg max-w-none text-center"
           >
-            <p className="font-satoshi text-xl sm:text-2xl text-gray-300 leading-relaxed mb-5">
-              The Mandate is not a simulation. Not a course.{" "}
-              <span className="text-white">Not a test you can prepare for.</span>
+            <p className="font-satoshi text-2xl text-white leading-tight mb-10">
+              Last Prompt is a machine that forces you to externalise your reasoning, then makes you live inside the world that reasoning creates — repeatedly, personally, and without mercy.
             </p>
-            <p className="text-lg text-gray-500 leading-relaxed mb-5">
-              It is a private evaluation of how you reason when it matters.
-            </p>
-            <p className="text-lg text-gray-500 leading-relaxed mb-10">
-              The character lives the consequences. You see the analysis of why.
-            </p>
+
+            <div className="space-y-8 text-lg text-gray-400">
+              <p>What if every decision you made literally built the next crisis you faced?</p>
+              <p>What if there were no multiple-choice answers — only the plan you were willing to write and defend?</p>
+              <p>What if an impartial archive watched not whether you “won”, but how clearly you thought when the stakes were real and time was short?</p>
+
+              <p className="text-white font-medium">Last Prompt doesn’t simulate a story.<br />It simulates <span className="text-[#C9A66B]">you</span>.</p>
+
+              <p>Your choices shape the environment.<br />
+                 The environment shapes the next choice.<br />
+                 Each run is unrepeatable because it is built from your reasoning, your blind spots, your evolving relationship with consequence.</p>
+
+              <p className="text-white">You can play it unlimited times. Most people do.</p>
+              <p className="text-white">Not to get a higher score.<br />But to finally see what kind of world they keep creating — and whether they can learn to create a different one.</p>
+            </div>
+
             <Link
               href="/engine"
-              className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors mt-12"
             >
-              Read how the engine works <ArrowRight className="w-4 h-4" />
+              Understand the engine <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>
