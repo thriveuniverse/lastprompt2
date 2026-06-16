@@ -302,18 +302,16 @@ export default function HiddenGapPage() {
             className="pt-8 border-t border-gray-800"
           >
             <p className="text-xs font-mono text-[#C9A66B] tracking-widest mb-4 uppercase">
-              Beta Access
+              Research Participation
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
-              If this resonates — not as theory, but as a recognisable description of
-              something you have watched happen in your own organisation — the platform
-              is in closed beta. Register your interest below.
+              If this resonates, we are seeking Decision Analysis Participants. We analyse the decisions together through The Mandate and debrief the reasoning with full honesty. Register your interest below.
             </p>
             <Link
               href="/#contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-colors text-sm tracking-wide font-satoshi"
             >
-              Apply for beta access <ArrowRight className="w-4 h-4" />
+              Apply to participate <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.section>
 

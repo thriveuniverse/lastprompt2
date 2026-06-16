@@ -316,12 +316,12 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Beta Access</span>
+            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Research Participation</span>
             <h2 className="font-satoshi text-4xl sm:text-5xl font-bold text-white mt-4 mb-5">
-              Find out how you actually think.
+              Decision Analysis Participants wanted.
             </h2>
             <p className="text-gray-400 max-w-md mx-auto leading-relaxed">
-              We are looking for people who embrace honest feedback — and who want to know how they actually reason when the pressure is real.
+              Senior decision-makers under uncertainty (or ambitious juniors who see the stakes). We analyse your decisions via The Mandate, deliver the Intelligence Report, and debrief honestly.
             </p>
           </motion.div>
           <motion.div
