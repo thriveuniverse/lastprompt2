@@ -207,7 +207,7 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
         ) : variant === "demo" ? (
           "Request Demo"
         ) : (
-          "Apply for Beta Access"
+          "Submit"
         )}
       </button>
     </form>

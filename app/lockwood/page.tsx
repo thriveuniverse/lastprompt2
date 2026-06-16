@@ -215,9 +215,9 @@ export default function LockwoodPage() {
           viewport={{ once: true }}
           className="py-12 space-y-4"
         >
-          <p className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Beta Access</p>
+          <p className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Research Participation</p>
           <p className="text-gray-400 leading-relaxed mb-6">
-            Lockwood is currently in testing. Apply for access below — we will reach out directly.
+            Lockwood is currently in testing. Submit below if you would like to participate as a Decision Analysis Participant.
           </p>
           <LeadForm interest="lockwood" accentColor="purple" />
         </motion.section>

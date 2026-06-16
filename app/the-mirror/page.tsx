@@ -185,7 +185,7 @@ export default function TheMirrorPage() {
           viewport={{ once: true }}
           className="py-12 space-y-4"
         >
-          <p className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Apply for Access</p>
+          <p className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Research Participation</p>
           <p className="text-gray-400 leading-relaxed mb-6">
             The Mandate is in closed beta. If this made you want to sit in the chair — register below.
           </p>

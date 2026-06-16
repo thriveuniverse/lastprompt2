@@ -693,7 +693,7 @@ export default function EnginePage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="font-satoshi text-white font-bold text-2xl mb-1">See the engine in action.</h3>
-              <p className="text-gray-500">All three skins are in testing. Apply for beta access above.</p>
+              <p className="text-gray-500">All three skins are in testing. Submit on any skin page to participate as a Decision Analysis Participant.</p>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link

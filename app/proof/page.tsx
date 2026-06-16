@@ -947,7 +947,7 @@ export default function ProofPage() {
               href="/#contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-colors text-sm tracking-wide font-satoshi"
             >
-              Apply for access <ArrowRight className="w-4 h-4" />
+              Apply for Access
             </Link>
           </div>
         </motion.section>
