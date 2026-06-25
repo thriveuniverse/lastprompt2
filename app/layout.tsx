@@ -5,6 +5,7 @@ import { Providers } from "@/components/providers";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
+import { WhitepaperPill } from "@/components/whitepaper-pill";
 import { headers } from "next/headers";
 import Script from "next/script";
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="min-h-screen">{children}</main>
           <Footer />
           <CookieBanner />
+          <WhitepaperPill />
         </Providers>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0GMRB9DQFD"
