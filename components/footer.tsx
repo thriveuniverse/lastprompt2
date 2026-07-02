@@ -14,7 +14,7 @@ export function Footer() {
               Powered by Last Prompt
             </p>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              A private decision intelligence platform. Not what you choose — how you reason.
+              A private, consequential decision practice. Not what you choose — how you reason.
             </p>
           </div>
           <div>

@@ -2,6 +2,12 @@
 # https://last-prompt.com
 # llms.txt — for AI crawlers and language model indexing
 
+## Category
+
+AI-evaluated decision practice (formally: a consequence-bearing reasoning environment).
+
+Not "decision intelligence" in the enterprise-software sense (Aera, Pega, IBM watsonx): Last Prompt does not automate business decisions. The AI evaluates human reasoning; it never decides.
+
 ## What is The Mandate?
 
 Last Prompt is a machine that forces you to externalise your reasoning, then makes you live inside the world that reasoning creates — repeatedly, personally, and without mercy.

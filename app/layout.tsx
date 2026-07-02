@@ -21,22 +21,22 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
-    description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Powered by the Last Prompt engine. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
+    title: "The Mandate — AI-Evaluated Decision Practice | Powered by Last Prompt",
+    description: "The Mandate is an AI-evaluated decision practice platform for leaders reasoning under uncertainty. Powered by the Last Prompt engine. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
     icons: {
       icon: "/favicon.svg",
       shortcut: "/favicon.svg",
     },
     openGraph: {
-      title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
-      description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
+      title: "The Mandate — AI-Evaluated Decision Practice | Powered by Last Prompt",
+      description: "The Mandate is an AI-evaluated decision practice platform for leaders reasoning under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
       images: ["/og-image.jpg"],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "The Mandate — Decision Intelligence Platform | Powered by Last Prompt",
-      description: "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
+      title: "The Mandate — AI-Evaluated Decision Practice | Powered by Last Prompt",
+      description: "The Mandate is an AI-evaluated decision practice platform for leaders reasoning under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
       images: ["/og-image.jpg"],
     },
   };
@@ -47,16 +47,16 @@ const SCHEMA_WEBSITE = {
   "@type": "WebSite",
   "name": "The Mandate",
   "url": "https://last-prompt.com",
-  "description": "The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
+  "description": "The Mandate is an AI-evaluated decision practice platform for leaders reasoning under uncertainty. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters.",
 };
 
 const SCHEMA_APPLICATION = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "The Mandate",
-  "applicationCategory": "DecisionIntelligence",
+  "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
-  "description": "A private decision intelligence platform. Users write plans in plain English under high-stakes scenarios with incomplete information. A neutral AI evaluates the quality of their reasoning — not their choices — across five criteria. No two paths are the same. There is no undo.",
+  "description": "A private, AI-evaluated decision practice platform. Users write plans in plain English under high-stakes scenarios with incomplete information. A neutral AI evaluates the quality of their reasoning — not their choices — across five criteria. No two paths are the same. There is no undo.",
   "brand": {
     "@type": "Brand",
     "name": "Last Prompt",

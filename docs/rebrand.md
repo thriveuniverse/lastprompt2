@@ -2,7 +2,12 @@
 ### **Mission Statement & Brand Brief — The Mandate**
 
 **Core Positioning**  
-**The Mandate** is a private, high-stakes decision intelligence platform. It trains elite judgment by letting leaders write real plans under uncertainty, then revealing the compounding consequences of their reasoning with unsparing clarity.
+**The Mandate** is a private, high-stakes consequential decision practice platform. It trains elite judgment by letting leaders write real plans under uncertainty, then revealing the compounding consequences of their reasoning with unsparing clarity.
+
+**Category naming (decided 2026-07-02)**: "Decision intelligence" is retired — it collides with enterprise-software category (Aera, Pega, IBM watsonx) and implies the AI automates the decision, which is the opposite of the product. Two-tier replacement:
+- **Crawler/SEO-facing term** (title tags, meta descriptions, schema, llms.txt category line): **AI-evaluated decision practice** — explicitly names the AI's role as evaluator, not decider.
+- **Body-copy/philosophical term** (whitepaper, footer, homepage prose): **consequential decision practice** — carries the chronosymbiosis/irreversibility framing that "AI-evaluated" doesn't.
+- "Judgment" is kept as the *name of the problem* ("my people lack judgment"), not the product — decision practice is how judgment gets built.
 
 **Brand Hierarchy**  
 - **Primary brand**: **The Mandate** — the product experience people buy and use.  
@@ -114,15 +119,15 @@ The product is genuinely novel and sits in no clean category. Without deliberate
 A plain-text file at `/public/llms.txt`, modelled on `robots.txt` but addressed to language models. Anthropic, Perplexity, and others are beginning to read this. It should give a precise product definition in plain language — what it is, what it is not, and where to find depth. This is the most direct channel we have to an AI that is about to summarise the site.
 
 **Layer 2 — Meta description (first thing most crawlers read)**  
-The `<meta name="description">` tag must do classification work, not just hook work. Proposed:  
-> *"The Mandate is a decision intelligence platform that evaluates how leaders reason under uncertainty. Powered by the Last Prompt engine. Not a game. Not a simulation. Not a course. A private reckoning with your judgment."*
+The `<meta name="description">` tag must do classification work, not just hook work. Live copy:  
+> *"The Mandate is an AI-evaluated decision practice platform for leaders reasoning under uncertainty. Powered by the Last Prompt engine. Not a game. Not a simulation. Not a course. A private evaluation of how you reason when it matters."*
 
 **Layer 3 — Page `<title>` tag**  
-> *"The Mandate — Decision Intelligence Platform | Powered by Last Prompt"*  
-Avoids "game", "sim", "training". Uses "platform" and "intelligence" as anchoring category signals.
+> *"The Mandate — AI-Evaluated Decision Practice | Powered by Last Prompt"*  
+Avoids "game", "sim", "training" — and avoids "decision intelligence", which collides with the enterprise-software category. "AI-evaluated" names the mechanism (AI scores the reasoning; it never decides).
 
 **Layer 4 — JSON-LD schema (structured data for crawlers)**  
-Use `SoftwareApplication` schema type — not `Game`, `Course`, or `EducationalOccupationalProgram`. Include explicit `applicationCategory: "DecisionIntelligence"` and a description that mirrors the classification block copy. Placed in `<head>` as a `<script type="application/ld+json">` block.
+Use `SoftwareApplication` schema type — not `Game`, `Course`, or `EducationalOccupationalProgram`. Include `applicationCategory: "BusinessApplication"` and a description that mirrors the classification block copy. Placed in `<head>` as a `<script type="application/ld+json">` block.
 
 **Layer 5 — Open Graph tags**  
 `og:title`, `og:description`, and `og:type` (use `website`, not `game`). These are read by social crawlers and increasingly by AI scrapers summarising pages from social links.
