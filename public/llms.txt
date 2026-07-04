@@ -69,10 +69,10 @@ Users engage one decision at a time and can return between sessions. There is no
 ### Colony — Post-Collapse Survival
 Jon Kelly leads 100 survivors through the collapse of civilisation. Each cycle he faces a new crisis. Users write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only the user sees why they fell as they did. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
 
-### Corporate Reckoning — Executive Crisis Simulation
+### Corporate Reckoning — Executive Crisis Practice
 Navigate a corporate crisis as a senior leader with competing advisors and a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
 
-### Lockwood — Historical Decision Simulation
+### Lockwood — Historical Decision Practice
 Each chapter opens at a real moment in the history of computing and machine intelligence. The events that follow are drawn from across human history — anonymised and placed by the circumstances the player's decisions created. The player is The Traveller — a silent operative arriving at the thinnest points in the timeline, where one different thought might have pulled things in another direction. Five stats: Cognitive, Moral, Perceptual, Collective, Temporal. Status: In Testing.
 
 ## Pages

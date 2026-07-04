@@ -360,7 +360,7 @@ export default function ProofPage() {
               The evaluator reads context.
             </h2>
             <p className="text-gray-400 leading-relaxed max-w-2xl">
-              EVALUATE_STRATEGY receives the full simulation state — not just the
+              EVALUATE_STRATEGY receives the full environmental state — not just the
               player&apos;s plan. The claim: identical decision text scores differently when
               the environmental context changes.
             </p>

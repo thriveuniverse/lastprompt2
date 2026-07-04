@@ -42,7 +42,7 @@ const LOOP_STEPS = [
   {
     number: "05",
     label: "CONSEQUENCES RESOLVE",
-    description: "The simulation applies outcomes based on how well you reasoned — not what you chose. Poor thinking compounds. Strong thinking builds resilience. The world you face next is the world your reasoning built.",
+    description: "The engine applies outcomes based on how well you reasoned — not what you chose. Poor thinking compounds. Strong thinking builds resilience. The world you face next is the world your reasoning built.",
     color: "text-[#D0633A]",
     border: "border-[#D0633A]/30",
     bg: "bg-[#D0633A]/5",
@@ -153,7 +153,7 @@ const COMPLEXITY_LEVELS = [
     vars: "7+ Variables",
     label: "Executive Strategy",
     desc: "High-complexity environments requiring abstraction, delegation, and long-horizon thinking.",
-    example: "e.g., National Crisis, Diplomatic Simulation",
+    example: "e.g., National Crisis, Diplomatic Crisis",
     color: "text-[#BAA5E8]",
     border: "border-[#BAA5E8]/30",
     bg: "bg-[#BAA5E8]/5",
@@ -193,7 +193,7 @@ export default function EnginePage() {
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed mb-4">
               The Last Prompt Engine is the proprietary technology behind{" "}
-              <span className="text-[#C9A66B] font-medium">The Mandate</span>. It is a decision-intelligence evaluation system that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific. The same evaluation logic runs in every world.
+              <span className="text-[#C9A66B] font-medium">The Mandate</span>. It is an AI-evaluated decision-practice system that can be wrapped in any thematic skin — survival, corporate, diplomatic, scientific. The same evaluation logic runs in every world.
             </p>
             <p className="text-gray-500 leading-relaxed">
               The engine evaluates the quality of human reasoning under uncertainty. It is content-agnostic, skin-agnostic, and domain-agnostic. The only constant is the rubric.
@@ -217,7 +217,7 @@ export default function EnginePage() {
                 A prompt, in its oldest sense, is a nudge — a cue that moves thinking in a new direction without dictating where it lands. In The Mandate, your advisors prompt you. Your questions prompt them. The crisis itself prompts the situation.
               </p>
               <p>
-                But the last prompt — the only input that actually moves the simulation — is yours. The plan you write, in your own words, which a neutral AI then receives and evaluates. We named the engine for that moment: the last word before consequences unfold.
+                But the last prompt — the only input that actually moves the world — is yours. The plan you write, in your own words, which a neutral AI then receives and evaluates. We named the engine for that moment: the last word before consequences unfold.
               </p>
               <p className="text-gray-600 text-sm italic">
                 This has no connection to AI prompt engineering, LLM tooling, or anything related to writing prompts for AI systems. The word means what it meant before large language models existed.
@@ -245,10 +245,10 @@ export default function EnginePage() {
               </p>
               <p className="text-gray-400 leading-relaxed mb-4">
                 The Last Prompt Engine is built on a single thesis:{" "}
-                <span className="text-white">better reasoning produces better outcomes</span>. The engine proves this by making the quality of your written plan the direct cause of what happens next in the simulation.
+                <span className="text-white">better reasoning produces better outcomes</span>. The engine proves this by making the quality of your written plan the direct cause of what happens next in the world.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                The AI does not drive, decide, or progress the simulation. It only evaluates how well the player thought through the problem.
+                The AI does not drive, decide, or progress the world. It only evaluates how well the player thought through the problem.
               </p>
             </motion.div>
 
@@ -329,7 +329,7 @@ export default function EnginePage() {
               <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Design Principle</span>
               <h2 className="font-satoshi text-3xl font-bold text-white mt-4 mb-5">Chronosymbiosis</h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Most simulations resolve one decision at a time. The Last Prompt Engine does not. The engine is built around a single design principle: your decisions don&apos;t vanish after one moment — they resonate forward across time.
+                Most scenario-based tools resolve one decision at a time. The Last Prompt Engine does not. The engine is built around a single design principle: your decisions don&apos;t vanish after one moment — they resonate forward across time.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 Today&apos;s trade-offs quietly strengthen or weaken tomorrow&apos;s options. Good reasoning compounds into resilience. Flawed reasoning compounds into fragility. The flags, stat deltas, and conditional events aren&apos;t mechanical features — they are the engine implementing Chronosymbiosis at a structural level.
@@ -379,10 +379,10 @@ export default function EnginePage() {
                 Six criteria. Zero mercy.
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                The AI evaluator scores your plan against six criteria, each rated 0–2. The total score (0–12) determines your quality band — and the quality band determines what happens next in the simulation.
+                The AI evaluator scores your plan against six criteria, each rated 0–2. The total score (0–12) determines your quality band — and the quality band determines what happens next in the world.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                A Poor score compounds. A Strong score builds resilience. The simulation does not care about your intentions — only the quality of your reasoning.
+                A Poor score compounds. A Strong score builds resilience. The world does not care about your intentions — only the quality of your reasoning.
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -477,7 +477,7 @@ export default function EnginePage() {
             <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Cognitive Complexity Scaling</span>
             <h2 className="font-satoshi text-4xl font-bold text-white mt-4 mb-4">Variable count is not cosmetic.</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              The number of active variables in a skin directly determines the cognitive complexity of the simulation. The engine supports any number.
+              The number of active variables in a skin directly determines the cognitive complexity of the environment. The engine supports any number.
             </p>
           </motion.div>
 
@@ -565,7 +565,7 @@ export default function EnginePage() {
               <p className="text-gray-400 text-sm mb-5">The sensory experience and context. Defined entirely in JSON — swappable without touching engine code.</p>
               <div className="space-y-3">
                 {[
-                  { key: "Thematic Vocabulary", desc: "Defines whether the simulation is Colony Survival, Corporate Strategy, or Diplomatic Crisis." },
+                  { key: "Thematic Vocabulary", desc: "Defines whether the experience is Colony Survival, Corporate Strategy, or Diplomatic Crisis." },
                   { key: "Data Collections", desc: "The specific events.json, deltas.json, and narratives.json that populate the world." },
                   { key: "Character Profiles", desc: "Each advisor has an archetype, core fear, hidden doubt, generational lens, and decision bias weights." },
                   { key: "Visual Styles", desc: "CSS variables (colours, fonts, layout) that represent the world's atmosphere." },

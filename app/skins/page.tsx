@@ -25,7 +25,7 @@ const SKINS = [
   },
   {
     name: "Corporate Reckoning",
-    subtitle: "Executive Crisis Simulation",
+    subtitle: "Executive Crisis Practice",
     color: "#3498DB",
     href: "/corporate-crisis",
     description:
@@ -48,7 +48,7 @@ const SKINS = [
   },
   {
     name: "Lockwood",
-    subtitle: "Historical Decision Simulation",
+    subtitle: "Historical Decision Practice",
     color: "#BAA5E8",
     href: "/lockwood",
     description:

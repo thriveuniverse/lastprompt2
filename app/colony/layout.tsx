@@ -2,16 +2,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Colony | Last Prompt",
-  description: "Lead 100 survivors through the collapse of civilisation. A post-collapse survival simulation where your written plan is the move — and a neutral AI evaluates the quality of your reasoning.",
+  description: "Lead 100 survivors through the collapse of civilisation. A post-collapse survival decision practice where your written plan is the move — and a neutral AI evaluates the quality of your reasoning.",
   openGraph: {
-    title: "Last Prompt: Colony — Post-Collapse Survival Simulation",
-    description: "Lead 100 survivors through the collapse of civilisation. Your written reasoning is the move. A neutral AI evaluates its quality. The simulation resolves accordingly.",
+    title: "Last Prompt: Colony — Post-Collapse Survival",
+    description: "Lead 100 survivors through the collapse of civilisation. Your written reasoning is the move. A neutral AI evaluates its quality. The world responds accordingly.",
     images: ["/og-image.jpg"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Last Prompt: Colony — Post-Collapse Survival Simulation",
+    title: "Last Prompt: Colony — Post-Collapse Survival",
     description: "Lead 100 survivors through the collapse of civilisation. Your written reasoning is the move. A neutral AI evaluates its quality.",
     images: ["/og-image.jpg"],
   },
@@ -19,13 +19,11 @@ export const metadata: Metadata = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "VideoGame",
+  "@type": "SoftwareApplication",
   "name": "Last Prompt: Colony",
   "url": "https://last-prompt.com/colony",
-  "description": "Lead 100 survivors through the collapse of civilisation. A post-collapse survival simulation where your written plan is evaluated by a neutral AI for reasoning quality.",
-  "genre": ["Simulation", "Strategy", "Educational"],
-  "gamePlatform": "Web Browser",
-  "applicationCategory": "Game",
+  "description": "Lead 100 survivors through the collapse of civilisation. A post-collapse survival decision practice where your written plan is evaluated by a neutral AI for reasoning quality.",
+  "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "inLanguage": "en",
   "isPartOf": {

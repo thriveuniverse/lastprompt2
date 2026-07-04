@@ -343,7 +343,7 @@ export default function PlaythroughPage() {
             <div>
               <h2 className="font-satoshi text-xl font-bold text-gray-200 mb-3">Chapter 1 opens</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                North Valley Settlement. One hundred colonists. All five simulation variables start at 6.0 — the neutral midpoint. Every player begins identically. From here, the arc belongs entirely to the decisions made.
+                North Valley Settlement. One hundred colonists. All five environmental variables start at 6.0 — the neutral midpoint. Every player begins identically. From here, the arc belongs entirely to the decisions made.
               </p>
               <p className="text-gray-600 text-sm leading-relaxed">
                 The first event is fixed for all players: a stranger arrives at the gate. After that, the engine scans the stat state after every decision to determine what comes next. The cascade is deterministic. The path is not.
@@ -483,7 +483,7 @@ export default function PlaythroughPage() {
 
               <EvalCard
                 band="Adequate"
-                narrative="The plan effectively addresses the immediate cohesion crisis by establishing a clear arbitration process and offering constructive activities. However, it overlooks the potential strain on community coordinators, whose release from other duties could inadvertently impact other critical colony functions. The most important thing the player could have done differently was to explicitly acknowledge which other duties would be deprioritised and assess their impact on other simulation variables."
+                narrative="The plan effectively addresses the immediate cohesion crisis by establishing a clear arbitration process and offering constructive activities. However, it overlooks the potential strain on community coordinators, whose release from other duties could inadvertently impact other critical colony functions. The most important thing the player could have done differently was to explicitly acknowledge which other duties would be deprioritised and assess their impact on other environmental variables."
               />
 
               <JournalCard text="Veronica's words about fracture had sat with me through the briefing, making the raised voices feel heavier than the words themselves. I posted the roster for the new shifts and watched one woman set down her tray without finishing her portion, the scrape of metal on laminate cutting through the mess hall noise. The finest coordinators meant someone else would have to handle the hydroponics checks tonight." />

@@ -4,14 +4,14 @@ export const metadata: Metadata = {
   title: "Corporate Reckoning | Last Prompt",
   description: "Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move, and a neutral AI judging the quality of your thinking — not your personality.",
   openGraph: {
-    title: "Last Prompt: Corporate Reckoning — Executive Crisis Simulation",
+    title: "Last Prompt: Corporate Reckoning — Executive Crisis Practice",
     description: "Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move, and a neutral AI judging the quality of your thinking.",
     images: ["/og-image.jpg"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Last Prompt: Corporate Reckoning — Executive Crisis Simulation",
+    title: "Last Prompt: Corporate Reckoning — Executive Crisis Practice",
     description: "Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move, and a neutral AI judging the quality of your thinking.",
     images: ["/og-image.jpg"],
   },
@@ -19,13 +19,11 @@ export const metadata: Metadata = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "VideoGame",
+  "@type": "SoftwareApplication",
   "name": "Last Prompt: Corporate Reckoning",
   "url": "https://last-prompt.com/corporate-crisis",
-  "description": "Navigate a corporate crisis as a senior leader. A decision-intelligence simulation that evaluates executive reasoning quality through AI-scored free-text planning.",
-  "genre": ["Simulation", "Educational", "Business"],
-  "gamePlatform": "Web Browser",
-  "applicationCategory": "Game",
+  "description": "Navigate a corporate crisis as a senior leader. An AI-evaluated decision practice that assesses executive reasoning quality through AI-scored free-text planning.",
+  "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "inLanguage": "en",
   "isPartOf": {

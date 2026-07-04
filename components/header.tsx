@@ -38,14 +38,14 @@ const NAV_ITEMS = [
       {
         label: "Corporate Reckoning",
         href: "/corporate-crisis",
-        desc: "Executive crisis simulation",
+        desc: "Executive crisis practice",
         icon: Building2,
         iconColor: "text-[#3498DB]",
       },
       {
         label: "Lockwood",
         href: "/lockwood",
-        desc: "Historical decision simulation — your timeline, your thread",
+        desc: "Historical decision practice — your timeline, your thread",
         icon: Gamepad2,
         iconColor: "text-[#BAA5E8]",
       },

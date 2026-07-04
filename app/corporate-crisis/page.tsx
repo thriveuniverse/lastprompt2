@@ -51,7 +51,7 @@ export default function CorporateCrisisPage() {
             transition={{ duration: 0.6 }}
             className="text-xs font-mono text-[#3498DB] tracking-widest mb-4 uppercase"
           >
-            Executive Crisis Simulation
+            Executive Crisis Practice
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}

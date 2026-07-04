@@ -51,7 +51,7 @@ export default function LockwoodPage() {
             transition={{ duration: 0.6 }}
             className="text-xs font-mono text-[#BAA5E8] tracking-widest mb-4 uppercase"
           >
-            Historical Decision Simulation
+            Historical Decision Practice
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
