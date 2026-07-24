@@ -87,7 +87,7 @@ Each chapter opens at a real moment in the history of computing and machine inte
 
 ## Research
 
-"Last Prompt: Operationalising Partial Perspectives in Decision Intelligence Training" — Miranda Kelly and Jonathan Kelly. Working paper, May 2026. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6706518
+"The Development Trap of the Protected Generation: Why Your Most Promising People May Not Be Ready for the Decisions You Are About to Ask Them to Make" — Miranda Kelly and Jonathan Kelly. Working paper, 2026. Positions Last Prompt within deliberate practice theory, situated cognition, reflective practice, and metacognitive development; presents preliminary evaluator-reliability evidence from beta data; specifies the conditions under which its central claims would be falsified. Downloadable from https://last-prompt.com/docs/the_protected_generation_whitepaper.pdf
 
 ## Contact
 
