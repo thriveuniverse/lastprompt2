@@ -56,21 +56,23 @@ export default function HomePage() {
     <div className="relative overflow-x-hidden bg-[#0A0A0A]">
 
       {/* ── HERO ── */}
-      <section className="relative h-[85vh] min-h-[620px] max-h-[920px] hidden md:flex items-center overflow-hidden">
-        <Image
-          src="/images/survivor-remaining-viable.jpg"
-          alt="A woman stands in a devastated, overgrown city street, looking down its length."
-          fill
-          priority
-          className="object-cover object-[70%_32%] scale-125"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, #0A0A0A 0%, #0A0A0A 28%, rgba(10,10,10,0.55) 42%, rgba(10,10,10,0) 62%)",
-          }}
-        />
+      <section className="relative h-[85vh] min-h-[620px] max-h-[920px] hidden md:flex items-center overflow-hidden bg-[#0A0A0A]">
+        <div className="absolute top-16 inset-x-0 bottom-0 overflow-hidden">
+          <Image
+            src="/images/survivor-remaining-viable.jpg"
+            alt="A woman stands in a devastated, overgrown city street, looking down its length."
+            fill
+            priority
+            className="object-cover object-[70%_32%] scale-125"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, #0A0A0A 0%, #0A0A0A 28%, rgba(10,10,10,0.55) 42%, rgba(10,10,10,0) 62%)",
+            }}
+          />
+        </div>
 
         <div className="relative z-10 w-full px-6 md:pl-12 lg:pl-16">
           <motion.div
@@ -79,11 +81,11 @@ export default function HomePage() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-[460px] text-left"
           >
-            <h1 className="font-satoshi text-2xl sm:text-3xl 2xl:text-4xl font-bold text-white mb-5 leading-[1.25] tracking-tight">
+            <h1 className="font-satoshi text-xl sm:text-2xl 2xl:text-3xl font-medium text-white mb-5 leading-[1.3] tracking-tight">
               &ldquo;The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.&rdquo;
             </h1>
 
-            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-10">— Last Prompt</p>
+            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-16">— Last Prompt</p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
@@ -124,8 +126,8 @@ export default function HomePage() {
       </section>
 
       {/* ── HERO (mobile) ── */}
-      <section className="relative flex md:hidden flex-col overflow-hidden">
-        <div className="relative h-[46vh] min-h-[320px] w-full">
+      <section className="relative flex md:hidden flex-col overflow-hidden bg-[#0A0A0A]">
+        <div className="relative h-[46vh] min-h-[320px] w-full mt-16">
           <Image
             src="/images/survivor-remaining-viable.jpg"
             alt="A woman stands in a devastated, overgrown city street, looking down its length."
@@ -148,11 +150,11 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="font-satoshi text-2xl font-bold text-white mb-5 leading-[1.25] tracking-tight">
+            <h1 className="font-satoshi text-xl font-medium text-white mb-5 leading-[1.3] tracking-tight">
               &ldquo;The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.&rdquo;
             </h1>
 
-            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-8">— Last Prompt</p>
+            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-12">— Last Prompt</p>
 
             <div className="flex flex-col gap-4">
               <Link
@@ -314,8 +316,8 @@ export default function HomePage() {
                  The environment shapes the next choice.<br />
                  Each run is unrepeatable because it is built from your reasoning, your blind spots, your evolving relationship with consequence.</p>
 
-              <p className="text-white">You can play it unlimited times. Most people do.</p>
-              <p className="text-white">Not to get a higher score.<br />But to finally see what kind of world they keep creating — and whether they can learn to create a different one.</p>
+              <p className="text-white">You can come back as many times as you want — most people do.</p>
+              <p className="text-white">Not for a better score. Creating a different world isn&rsquo;t the achievement — with this many variables, that&rsquo;s just arithmetic. The real question is whether the next one is more viable than the last.</p>
             </div>
 
             <Link
