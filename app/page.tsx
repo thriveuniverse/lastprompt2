@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { LeadForm } from "@/components/lead-form";
@@ -56,56 +56,121 @@ export default function HomePage() {
     <div className="relative overflow-x-hidden bg-[#0A0A0A]">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(201,166,107,0.07),transparent)]" />
+      <section className="relative h-[85vh] min-h-[620px] max-h-[920px] hidden md:flex items-center overflow-hidden">
+        <Image
+          src="/images/survivor-remaining-viable.jpg"
+          alt="A woman stands in a devastated, overgrown city street, looking down its length."
+          fill
+          priority
+          className="object-cover object-[70%_32%] scale-125"
+        />
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(201,166,107,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,166,107,0.3) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
+            background:
+              "linear-gradient(90deg, #0A0A0A 0%, #0A0A0A 28%, rgba(10,10,10,0.55) 42%, rgba(10,10,10,0) 62%)",
           }}
         />
 
-        <div className="relative z-10 max-w-[860px] mx-auto px-6 py-32 text-center">
+        <div className="relative z-10 w-full px-6 md:pl-12 lg:pl-16">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-[460px] text-left"
+          >
+            <h1 className="font-satoshi text-2xl sm:text-3xl 2xl:text-4xl font-bold text-white mb-5 leading-[1.25] tracking-tight">
+              &ldquo;The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.&rdquo;
+            </h1>
+
+            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-10">— Last Prompt</p>
+
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <Link
+                href="#contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-all duration-200 text-sm tracking-wide font-satoshi"
+              >
+                Request trial access
+              </Link>
+              <Link
+                href="#contact"
+                onClick={() => setShowCustomForm(true)}
+                className="inline-flex items-center gap-2 px-8 py-4 border border-gray-600 hover:border-gray-400 bg-[#0A0A0A]/70 backdrop-blur-sm text-gray-200 hover:text-white font-medium rounded-lg transition-all duration-200 text-sm"
+              >
+                Discuss a custom skin
+              </Link>
+            </div>
+
+            <p className="mt-10 text-xs text-gray-500 max-w-md leading-relaxed">
+              &ldquo;The Mandate&rdquo; is what the product calls its evaluator — the same intelligence, whichever world you&rsquo;re reasoning inside.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] font-mono text-cyan-400/60 tracking-[0.3em]">CONTINUE</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-4 h-4 text-cyan-400/60" />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ── HERO (mobile) ── */}
+      <section className="relative flex md:hidden flex-col overflow-hidden">
+        <div className="relative h-[46vh] min-h-[320px] w-full">
+          <Image
+            src="/images/survivor-remaining-viable.jpg"
+            alt="A woman stands in a devastated, overgrown city street, looking down its length."
+            fill
+            priority
+            className="object-cover object-[35%_15%]"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(10,10,10,0) 55%, #0A0A0A 98%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 bg-[#0A0A0A] px-6 pt-8 pb-14">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 border border-cyan-400/20 bg-cyan-400/5 rounded-full text-xs font-mono text-cyan-400 mb-12 tracking-widest"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              THE MANDATE — POWERED BY LAST PROMPT
-            </motion.div>
-
-            <h1 className="font-satoshi text-4xl sm:text-5xl 2xl:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
-              The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.
+            <h1 className="font-satoshi text-2xl font-bold text-white mb-5 leading-[1.25] tracking-tight">
+              &ldquo;The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.&rdquo;
             </h1>
 
-            <p className="text-xs font-mono text-gray-600 tracking-[0.2em] uppercase mb-14">— Last Prompt</p>
+            <p className="text-xs font-mono text-[#C9A66B]/80 tracking-[0.2em] uppercase mb-8">— Last Prompt</p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col gap-4">
               <Link
-                href="/colony"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-all duration-200 text-sm tracking-wide font-satoshi"
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-all duration-200 text-sm tracking-wide font-satoshi"
               >
-                Begin Command in the Colony
+                Request trial access
               </Link>
               <Link
-                href="/engine"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium rounded-lg transition-all duration-200 text-sm"
+                href="#contact"
+                onClick={() => setShowCustomForm(true)}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium rounded-lg transition-all duration-200 text-sm"
               >
-                How the engine works <ArrowRight className="w-4 h-4" />
+                Discuss a custom skin
               </Link>
             </div>
 
-            <p className="mt-14 text-xs text-gray-600 max-w-md mx-auto leading-relaxed">
+            <p className="mt-8 text-xs text-gray-500 leading-relaxed">
               &ldquo;The Mandate&rdquo; is what the product calls its evaluator — the same intelligence, whichever world you&rsquo;re reasoning inside.
             </p>
           </motion.div>
