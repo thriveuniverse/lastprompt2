@@ -70,7 +70,7 @@ export function Footer() {
             </p>
             <p className="text-gray-600 text-[10px] font-mono leading-relaxed max-w-2xl">
               Unauthorized copying, distribution, modification, or commercial use prohibited.
-              <br className="sm:hidden" /> For licensing or inquiries: <a href="mailto:artikelly@hotmail.co.uk" className="text-cyan-400 hover:underline">artikelly@hotmail.co.uk</a>
+              <br className="sm:hidden" /> For licensing or inquiries: <a href="mailto:miranda@thethriveclan.com" className="text-cyan-400 hover:underline">miranda@thethriveclan.com</a>
             </p>
           </div>
           <p className="text-gray-700 text-xs font-mono shrink-0">ENGINE v1.0 — EVALUATION ACTIVE</p>

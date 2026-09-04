@@ -71,7 +71,7 @@ const SCHEMA_ORGANIZATION = {
   "url": "https://last-prompt.com",
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "artikelly@hotmail.co.uk",
+    "email": "miranda@thethriveclan.com",
     "contactType": "customer support",
   },
 };

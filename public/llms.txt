@@ -16,6 +16,8 @@ The Mandate is the product experience. It places leaders inside high-stakes scen
 
 Last Prompt doesn’t simulate a story. It simulates you.
 
+Last Prompt is not primarily about decisions. It is about the environment decisions create. Practitioners often focus on solving the event in front of them; the engine focuses on the conditions that generated that event and the conditions left behind afterwards. Over time, a practitioner's decisions produce a distinctive world — with its own strengths, vulnerabilities, and opportunities. That world, not any single decision, is the true outcome of a run.
+
 The Mandate is what people buy — an unsparing verdict on the quality of their own thinking. Last Prompt is the proprietary engine that powers it. Skins (Colony, Corporate Reckoning, Lockwood) are the scenario contexts through which the engine runs. The evaluation logic is identical across all skins.
 
 ## What it is not
@@ -30,6 +32,8 @@ The Mandate is what people buy — an unsparing verdict on the quality of their 
 
 ## How it works
 
+The environment is the primary actor in Last Prompt. Events emerge from environmental conditions; decisions alter those conditions; consequences reshape the environment that generates future events. The practitioner is not managing isolated crises — they are continuously creating the conditions from which future crises arise.
+
 Users are placed inside high-stakes scenarios with incomplete information and partial-perspective advisors. They write a plan in plain English. A neutral AI evaluates the quality of their reasoning — not their choices — across six criteria. Consequences follow from reasoning quality, not from which option was selected. No two users have the same path because no two inputs are the same.
 
 Evaluation rubric (0–2 per criterion, 0–12 total):
@@ -42,6 +46,8 @@ Evaluation rubric (0–2 per criterion, 0–12 total):
 
 Quality bands: Poor (0–4), Adequate (5–8), Strong (9–12)
 
+A run ends when a practitioner completes the scenario's full sequence — 30 decisions across 6 chapters — or when any tracked stat reaches zero, whichever occurs first. Strong evaluations do not guarantee survival: the Mandate evaluates reasoning quality; the environment determines viability. A practitioner can reason well inside a deteriorating system and still experience collapse if environmental conditions become unsustainable.
+
 ## The evaluation asymmetry
 
 This is the product's core differentiator from narrative simulation.
@@ -53,6 +59,8 @@ Users write the character's decisions — they inhabit the character's reasoning
 Users engage one decision at a time and can return between sessions. There is no schedule, no weekly commitment, no real-time pressure. The pressure is cognitive, not temporal.
 
 ## Key concepts
+
+**Advisors**: Advisors do not represent specific stats or numeric categories. They represent specialised perspectives, each shaped by that character's expertise, responsibilities, fears, and priorities. Advisor reports are truthful but incomplete by design — practitioners must reason through perspective rather than search for objective narration.
 
 **Chronosymbiosis**: Users live with the consequences of their decisions even when new information emerges after the decision was made. There is no revision. There is no undo. Good reasoning compounds into resilience; flawed reasoning compounds into fragility.
 
@@ -67,7 +75,7 @@ Users engage one decision at a time and can return between sessions. There is no
 ## Skins
 
 ### Colony — Post-Collapse Survival
-Jon Kelly leads 100 survivors through the collapse of civilisation. Each cycle he faces a new crisis. Users write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only the user sees why they fell as they did. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Veronica Delany (Community). Status: In Testing.
+Jon Kelly leads 100 survivors through the collapse of civilisation. Each cycle he faces a new crisis. Users write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only the user sees why they fell as they did. Five stats: Sustenance, Health, Security, Cohesion, Infrastructure. Advisors: Joe Edwards (Security), Lucie Elliot (Medical), Charlie Thomas (Agriculture), Lola Renan (Infrastructure), Peter Michael (Systems Engineer), Veronica Delany (Community). Status: In Testing.
 
 ### Corporate Reckoning — Executive Crisis Practice
 Navigate a corporate crisis as a senior leader with competing advisors and a board watching every move. Five stats: Cash Flow, Employee Well-Being, Regulatory Compliance, Team Engagement, Operational Infrastructure. Status: In Testing.
@@ -91,4 +99,4 @@ Each chapter opens at a real moment in the history of computing and machine inte
 
 ## Contact
 
-Licensing and collaboration: artikelly@hotmail.co.uk
+Licensing and collaboration: miranda@thethriveclan.com

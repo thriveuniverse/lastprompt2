@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface LeadFormProps {
   interest?: "colony" | "corporate" | "lockwood" | "both";
-  variant?: "default" | "demo";
+  variant?: "default" | "demo" | "trial";
   accentColor?: string;
 }
 
@@ -14,7 +14,7 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    segment: "player",
+    segment: variant === "trial" ? "individual" : "player",
     interest: interest,
     companyName: "",
     jobTitle: "",
@@ -108,34 +108,36 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">I am applying as...</label>
-          <select
-            value={formData.segment}
-            onChange={(e) => setFormData({ ...formData, segment: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
-          >
-            <option value="individual">An individual — testing my own reasoning</option>
-            <option value="b2b">An organisation — developing my team</option>
-            <option value="researcher">A researcher or academic</option>
-            <option value="other">Other</option>
-          </select>
+      {variant !== "trial" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-1">I am applying as...</label>
+            <select
+              value={formData.segment}
+              onChange={(e) => setFormData({ ...formData, segment: e.target.value })}
+              className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+            >
+              <option value="individual">An individual — testing my own reasoning</option>
+              <option value="b2b">An organisation — developing my team</option>
+              <option value="researcher">A researcher or academic</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Skin preference</label>
+            <select
+              value={formData.interest}
+              onChange={(e) => setFormData({ ...formData, interest: e.target.value as any })}
+              className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+            >
+              <option value="both">No preference — any skin</option>
+              <option value="lockwood">Lockwood (historical / philosophical)</option>
+              <option value="colony">Colony (post-collapse survival)</option>
+              <option value="corporate">Corporate Reckoning (executive crisis)</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">Skin preference</label>
-          <select
-            value={formData.interest}
-            onChange={(e) => setFormData({ ...formData, interest: e.target.value as any })}
-            className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
-          >
-            <option value="both">No preference — any skin</option>
-            <option value="lockwood">Lockwood (historical / philosophical)</option>
-            <option value="colony">Colony (post-collapse survival)</option>
-            <option value="corporate">Corporate Reckoning (executive crisis)</option>
-          </select>
-        </div>
-      </div>
+      )}
 
       <AnimatePresence>
         {(formData.segment === "b2b" || variant === "demo") && (
@@ -206,6 +208,8 @@ export function LeadForm({ interest = "both", variant = "default", accentColor =
           </>
         ) : variant === "demo" ? (
           "Request Demo"
+        ) : variant === "trial" ? (
+          "Request trial access"
         ) : (
           "Submit"
         )}

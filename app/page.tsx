@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { LeadForm } from "@/components/lead-form";
 
 const SKINS = [
@@ -10,41 +12,46 @@ const SKINS = [
     id: "colony",
     label: "SKIN 01",
     title: "Colony",
-    subtitle: "Post-Collapse Survival",
-    description: "Lead 100 survivors through the collapse of civilisation. Each cycle, Jon Kelly faces a new crisis. You write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only you see why they fell as they did.",
+    subtitle: "What we know.",
+    description: "The world is legible — the difficulty is choosing well between truths you already understand. Lead 100 survivors through the collapse of civilisation. Each cycle, Jon Kelly faces a new crisis. You write the plan he records into the terminal — the reasoning a neutral AI then evaluates. He lives the consequences. Only you see why they fell as they did.",
     accent: "text-[#D0633A]",
     border: "border-[#D0633A]/30",
     hover: "hover:border-[#D0633A]/50 hover:shadow-[#D0633A]/5",
     bg: "from-[#D0633A]/10",
     href: "/colony",
+    image: "/images/jon-kelly.png",
   },
   {
     id: "corporate",
     label: "SKIN 02",
     title: "Corporate Reckoning",
-    subtitle: "Executive Crisis Practice",
-    description: "Navigate a corporate crisis as a senior leader. Advisors with competing agendas, a board watching every move, and a neutral AI judging the quality of your thinking.",
+    subtitle: "What we don't know.",
+    description: "You will never understand every function you're responsible for governing. The practice is deciding well anyway. Advisors here are modelled on real experts, with real, earned bias — and if a term is unfamiliar, you get exactly one question to ask them directly. That answer is never scored. Only what you do with it is.",
     accent: "text-[#3498DB]",
     border: "border-[#3498DB]/30",
     hover: "hover:border-[#3498DB]/50 hover:shadow-[#3498DB]/5",
     bg: "from-[#3498DB]/10",
     href: "/corporate-crisis",
+    image: "/images/jon-roddy.png",
   },
   {
     id: "lockwood",
     label: "SKIN 03",
     title: "Lockwood",
-    subtitle: "Historical Decision Practice",
-    description: "Six crux points in the history of computing and machine intelligence. You are The Traveller — a silent operative reasoning at the moments that shaped the next century.",
+    subtitle: "What we cannot know.",
+    description: "Every chapter opens on a real historical moment. Then your own decisions diverge the timeline from the one history actually recorded. Hindsight stops being available. Only reasoning is left.",
     accent: "text-[#BAA5E8]",
     border: "border-[#BAA5E8]/30",
     hover: "hover:border-[#BAA5E8]/50 hover:shadow-[#BAA5E8]/5",
     bg: "from-[#BAA5E8]/10",
     href: "/lockwood",
+    image: "/images/the_traveller.png",
   },
 ];
 
 export default function HomePage() {
+  const [showCustomForm, setShowCustomForm] = useState(false);
+
   return (
     <div className="relative overflow-x-hidden bg-[#0A0A0A]">
 
@@ -77,13 +84,11 @@ export default function HomePage() {
               THE MANDATE — POWERED BY LAST PROMPT
             </motion.div>
 
-            <h1 className="font-satoshi text-4xl sm:text-5xl 2xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-              You make decisions every day. Here you see what you actually set in motion.
+            <h1 className="font-satoshi text-4xl sm:text-5xl 2xl:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
+              The purpose of reasoning is not to control the future. It is to remain viable when the future refuses to cooperate.
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-400 max-w-lg mx-auto mb-14 leading-relaxed font-light">
-              Last Prompt forces you to externalise your reasoning, then makes you live inside the world that reasoning creates — repeatedly, personally, and without mercy.
-            </p>
+            <p className="text-xs font-mono text-gray-600 tracking-[0.2em] uppercase mb-14">— Last Prompt</p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -99,6 +104,48 @@ export default function HomePage() {
                 How the engine works <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+
+            <p className="mt-14 text-xs text-gray-600 max-w-md mx-auto leading-relaxed">
+              &ldquo;The Mandate&rdquo; is what the product calls its evaluator — the same intelligence, whichever world you&rsquo;re reasoning inside.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── DIAGNOSIS ── */}
+      <section className="py-20 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[680px] mx-auto px-6">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-lg sm:text-xl text-gray-400 leading-relaxed text-center font-light"
+          >
+            Most decision tools assume good reasoning produces the right outcome. It doesn&rsquo;t — not reliably, and not when the stakes are real. What good reasoning produces is a decision-maker who can absorb the outcome regardless of which way it breaks, and keep going. Last Prompt is built to develop that: real consequences that don&rsquo;t reverse, judged on the quality of the thinking behind them, not on whether things happened to work out.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── ONBOARDING SCREEN ── */}
+      <section className="py-20 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[900px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="rounded-xl overflow-hidden border border-gray-800 shadow-2xl shadow-black/40">
+              <Image
+                src="/images/where-am-i-loadscreen.png"
+                alt="The Last Prompt world-select screen — WHERE AM I, WHO AM I, TAKE COMMAND"
+                width={1886}
+                height={1079}
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="text-center text-xs font-mono text-gray-600 tracking-widest uppercase mt-4">
+              Every session starts here.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -245,9 +292,22 @@ export default function HomePage() {
                   href={skin.href}
                   className={`group block relative overflow-hidden rounded-2xl bg-gradient-to-b ${skin.bg} to-gray-900/50 border ${skin.border} ${skin.hover} hover:shadow-xl transition-all duration-500 p-6 h-full`}
                 >
-                  <span className={`text-xs font-mono ${skin.accent} tracking-widest`}>{skin.label}</span>
-                  <h3 className="font-satoshi text-xl font-bold text-white mt-2 mb-1">{skin.title}</h3>
-                  <p className={`text-sm ${skin.accent} font-medium mb-4`}>{skin.subtitle}</p>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <span className={`text-xs font-mono ${skin.accent} tracking-widest`}>{skin.label}</span>
+                      <h3 className="font-satoshi text-xl font-bold text-white mt-2 mb-1">{skin.title}</h3>
+                      <p className={`text-sm ${skin.accent} font-medium`}>{skin.subtitle}</p>
+                    </div>
+                    <div className={`shrink-0 w-14 h-14 rounded-full overflow-hidden border ${skin.border} bg-gray-900`}>
+                      <Image
+                        src={skin.image}
+                        alt=""
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover grayscale-[30%]"
+                      />
+                    </div>
+                  </div>
                   <p className="text-gray-400 text-sm leading-relaxed mb-6">{skin.description}</p>
                   <span className={`inline-flex items-center gap-2 text-sm font-medium ${skin.accent} group-hover:gap-3 transition-all`}>
                     Explore <ArrowRight className="w-3.5 h-3.5" />
@@ -307,30 +367,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ── CTA: TWO DOORS ── */}
       <section id="contact" className="py-28 bg-gray-950 border-t border-gray-900">
-        <div className="max-w-[680px] mx-auto px-6">
+        <div className="max-w-[960px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
-            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Research Participation</span>
-            <h2 className="font-satoshi text-4xl sm:text-5xl font-bold text-white mt-4 mb-5">
-              Decision Analysis Participants wanted.
+            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Get Involved</span>
+            <h2 className="font-satoshi text-4xl sm:text-5xl font-bold text-white mt-4">
+              Two ways in.
             </h2>
-            <p className="text-gray-400 max-w-md mx-auto leading-relaxed">
-              Senior decision-makers under uncertainty (or ambitious juniors who see the stakes). We analyse your decisions via The Mandate, deliver the Intelligence Report, and debrief honestly.
-            </p>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <LeadForm interest="both" accentColor="cyan" />
-          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            {/* Door 1 — Trial Access */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-2xl border border-gray-800 bg-gray-900/40 h-full"
+            >
+              <h3 className="font-satoshi text-2xl font-bold text-white mb-3">Trial Access</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                Start in Colony, where the reasoning is put to work in a world you already understand.
+              </p>
+              <LeadForm variant="trial" interest="colony" accentColor="cyan" />
+            </motion.div>
+
+            {/* Door 2 — Discuss a Custom Skin */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-2xl border border-[#C9A66B]/30 bg-[#C9A66B]/5 h-full"
+            >
+              <h3 className="font-satoshi text-2xl font-bold text-white mb-3">Discuss a Custom Skin</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                Any domain can become a skin. If you want Last Prompt built around your organisation&rsquo;s actual reality, reach out directly.
+              </p>
+              {showCustomForm ? (
+                <LeadForm interest="both" accentColor="cyan" />
+              ) : (
+                <button
+                  onClick={() => setShowCustomForm(true)}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#C9A66B] hover:bg-[#D4AF77] text-black font-bold rounded-lg transition-colors text-sm tracking-wide font-satoshi"
+                >
+                  Discuss a custom skin <ArrowRight className="w-4 h-4" />
+                </button>
+              )}
+            </motion.div>
+          </div>
         </div>
       </section>
 
