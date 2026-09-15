@@ -434,6 +434,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── BEFORE YOU PLAY ── */}
+      <section className="py-24 bg-[#0A0A0A] border-t border-gray-900">
+        <div className="max-w-[680px] mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-xs font-mono text-[#C9A66B] tracking-widest uppercase">Before You Play</span>
+
+            <p className="font-satoshi text-2xl sm:text-3xl text-white mt-8 mb-6 leading-relaxed">
+              People don&rsquo;t fear decisions because they lack intelligence.{" "}
+              <span className="text-gray-400 font-light">They fear the consequences the decision creates.</span>
+            </p>
+
+            <p className="text-lg text-gray-500 leading-relaxed mb-3">
+              The difficult part isn&rsquo;t choosing. The difficult part is owning what the choice creates.
+            </p>
+            <p className="text-lg text-gray-500 leading-relaxed mb-10">
+              That is how life actually works — and it is what Last Prompt is built around.
+            </p>
+
+            <Link
+              href="/before-you-play"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#C9A66B] hover:text-[#D4AF77] transition-colors"
+            >
+              Read: Before You Play <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── CTA: TWO DOORS ── */}
       <section id="contact" className="py-28 bg-gray-950 border-t border-gray-900">
         <div className="max-w-[960px] mx-auto px-6">
